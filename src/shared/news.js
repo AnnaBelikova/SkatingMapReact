@@ -2,177 +2,42 @@ export const NEWS =
     [
         {
         id: 0,
-                  name:'Crash on Nevsky',
-                  image: 'assets/images/crash.jpg',
-                  
-                  description:'His followed carriage proposal entrance directly had elegance. Greater for cottage gay parties natural. Remaining he furniture on he discourse suspected perpetual. Power dried her taken place day ought the. Four and our ham west miss. Education shameless who middleton agreement how. We in found world chief is at means weeks smile. ',
-        comments: [
-            {
-            id: 0,
-            rating: 5,
-            comment: "Imagine all the eatables, living in conFusion!",
-            author: "John Lemon",
-            date: "2012-10-16T17:57:28.556094Z"
-            },
-            {
-            id: 1,
-            rating: 4,
-            comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-            author: "Paul McVites",
-            date: "2014-09-05T17:57:28.556094Z"
-            },
-            {
-            id: 2,
-            rating: 3,
-            comment: "Eat it, just eat it!",
-            author: "Michael Jaikishan",
-            date: "2015-02-13T17:57:28.556094Z"
-            },
-            {
-            id: 3,
-            rating: 4,
-            comment: "Ultimate, Reaching for the stars!",
-            author: "Ringo Starry",
-            date: "2013-12-02T17:57:28.556094Z"
-            },
-            {
-            id: 4,
-            rating: 2,
-            comment: "It's your birthday, we're gonna party!",
-            author: "25 Cent",
-            date: "2011-12-02T17:57:28.556094Z"
-            }
-        ]                        },
-        {
-            id: 1,
-            name:'Crash on Nevsky',
-            image: 'assets/images/crash.jpg',
-            
-            description:'His followed carriage proposal entrance directly had elegance. Greater for cottage gay parties natural. Remaining he furniture on he discourse suspected perpetual. Power dried her taken place day ought the. Four and our ham west miss. Education shameless who middleton agreement how. We in found world chief is at means weeks smile. ' ,
-        comments: [
-            {
-            id: 0,
-            rating: 5,
-            comment: "Imagine all the eatables, living in conFusion!",
-            author: "John Lemon",
-            date: "2012-10-16T17:57:28.556094Z"
-            },
-            {
-            id: 1,
-            rating: 4,
-            comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-            author: "Paul McVites",
-            date: "2014-09-05T17:57:28.556094Z"
-            },
-            {
-            id: 2,
-            rating: 3,
-            comment: "Eat it, just eat it!",
-            author: "Michael Jaikishan",
-            date: "2015-02-13T17:57:28.556094Z"
-            },
-            {
-            id: 3,
-            rating: 4,
-            comment: "Ultimate, Reaching for the stars!",
-            author: "Ringo Starry",
-            date: "2013-12-02T17:57:28.556094Z"
-            },
-            {
-            id: 4,
-            rating: 2,
-            comment: "It's your birthday, we're gonna party!",
-            author: "25 Cent",
-            date: "2011-12-02T17:57:28.556094Z"
-            }
-        ]
+        name:'Uthappizza',
+        image: '/assets/images/crash.jpg',
+        category: 'mains',
+        label:'Hot',
+        price:'4.99',
+        featured: true,
+        description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.'                    
         },
         {
-            id: 2,
-            name:'Crash on Nevsky',
-            image: 'assets/images/crash.jpg',
-            
-            description:'His followed carriage proposal entrance directly had elegance. Greater for cottage gay parties natural. Remaining he furniture on he discourse suspected perpetual. Power dried her taken place day ought the. Four and our ham west miss. Education shameless who middleton agreement how. We in found world chief is at means weeks smile. ',
-        comments: [
-            {
-            id: 0,
-            rating: 5,
-            comment: "Imagine all the eatables, living in conFusion!",
-            author: "John Lemon",
-            date: "2012-10-16T17:57:28.556094Z"
-            },
-            {
-            id: 1,
-            rating: 4,
-            comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-            author: "Paul McVites",
-            date: "2014-09-05T17:57:28.556094Z"
-            },
-            {
-            id: 2,
-            rating: 3,
-            comment: "Eat it, just eat it!",
-            author: "Michael Jaikishan",
-            date: "2015-02-13T17:57:28.556094Z"
-            },
-            {
-            id: 3,
-            rating: 4,
-            comment: "Ultimate, Reaching for the stars!",
-            author: "Ringo Starry",
-            date: "2013-12-02T17:57:28.556094Z"
-            },
-            {
-            id: 4,
-            rating: 2,
-            comment: "It's your birthday, we're gonna party!",
-            author: "25 Cent",
-            date: "2011-12-02T17:57:28.556094Z"
-            }
-        ]
+        id: 1,
+        name:'Zucchipakoda',
+        image: '/assets/images/crash.jpg',
+        category: 'appetizer',
+        label:'',
+        price:'1.99',
+        featured: false,
+        description:'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce'
         },
         {
-            id: 3,
-            name:'Crash on Gallary',
-            image: 'assets/images/crash.jpg',
-            
-            description:'His followed carriage proposal entrance directly had elegance. Greater for cottage gay parties natural. Remaining he furniture on he discourse suspected perpetual. Power dried her taken place day ought the. Four and our ham west miss. Education shameless who middleton agreement how. We in found world chief is at means weeks smile. ' ,
-        comments: [
-            {
-            id: 0,
-            rating: 5,
-            comment: "Imagine all the eatables, living in conFusion!",
-            author: "John Lemon",
-            date: "2012-10-16T17:57:28.556094Z"
-            },
-            {
-            id: 1,
-            rating: 4,
-            comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-            author: "Paul McVites",
-            date: "2014-09-05T17:57:28.556094Z"
-            },
-            {
-            id: 2,
-            rating: 3,
-            comment: "Eat it, just eat it!",
-            author: "Michael Jaikishan",
-            date: "2015-02-13T17:57:28.556094Z"
-            },
-            {
-            id: 3,
-            rating: 4,
-            comment: "Ultimate, Reaching for the stars!",
-            author: "Ringo Starry",
-            date: "2013-12-02T17:57:28.556094Z"
-            },
-            {
-            id: 4,
-            rating: 2,
-            comment: "It's your birthday, we're gonna party!",
-            author: "25 Cent",
-            date: "2011-12-02T17:57:28.556094Z"
-            }
-        ]
+        id: 2,
+        name:'Vadonut',
+        image: '/assets/images/crash.jpg',
+        category: 'appetizer',
+        label:'New',
+        price:'1.99',
+        featured: false,
+        description:'A quintessential ConFusion experience, is it a vada or is it a donut?'
+        },
+        {
+        id: 3,
+        name:'ElaiCheese Cake',
+        image: '/assets/images/crash.jpg',
+        category: 'dessert',
+        label:'',
+        price:'2.99',
+        featured: false,
+        description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms'
         }
     ];

@@ -1,69 +1,50 @@
 import React, { Component } from 'react';
 import { Media } from 'reactstrap';
-import { Card, CardImg, Button, CardText, CardBody,
-    CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay,
+    CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-class News extends Component {
-    
-    constructor(props) {
-        super(props);
+function RenderNewsItem({article, onClick}){
+    return(
+        <Card>
+        <Link to={`/news/${article.id}`} >
 
-        this.state = {
-            selectedArticle: null
-        }
-    }
-    onArticleSelect(article) {
-        this.setState({ selectedArticle: article});
-    }
+                <CardImg width="100%" src={article.image} alt={article.name} />
+                <CardImgOverlay>
+                    <CardTitle>{article.name}</CardTitle>
+                </CardImgOverlay>
+            </Link>
+            </Card>
+    );
+}
 
-    renderArticle(article) {
-        if (article != null)
-            return(
-                <Card>
-                    <CardImg top src={article.image} alt={article.name} />
-                    <CardBody>
-                      <CardTitle>{article.name}</CardTitle>
-                      <CardText>{article.description}</CardText>
-                    </CardBody>
-                </Card>
-            );
-        else
-            return(
-                <div></div>
-            );
-    }
+    const News = (props) => {
 
-    render() {
-        const articles = this.props.articles.map((article) => {
+        const articles = props.articles.map((article) => {
             return (
-              <div  className="col-12 col-md-4 ">
-                <Card >
-                  
-                    <CardBody>
-                        <CardImg width="100%" src={article.image} alt={article.name} />
-                        <CardTitle>{article.name}</CardTitle>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                        <Button key={article.id}
-                        onClick={() => this.onArticleSelect(article)} dark color="primary" >In Detail</Button>
-                    </CardBody>
-                </Card>
-              </div>
+                <div className="col-12 col-md-5 m-1"  key={article.id}>
+                    <RenderNewsItem article={article} onClick={props.onClick} />
+                </div>
             );
         });
 
         return (
-            <div className="container">
+               <div className="container">
                 <div className="row">
-                    {articles}
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>News</BreadcrumbItem>
+                    </Breadcrumb>
+                    <div className="col-12">
+                        <h3>News</h3>
+                        <hr />
+                    </div>                
                 </div>
                 <div className="row">
-                  <div  className="col-12 col-md-5 m-1">
-                    {this.renderArticle(this.state.selectedArticle)}
-                  </div>
+                    {articles}
                 </div>
             </div>
         );
     }
-}
 
 export default News;

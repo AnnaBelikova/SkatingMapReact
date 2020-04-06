@@ -3,6 +3,8 @@ import './App.css';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import News from './components/NewsComponent';
 import { NEWS } from './shared/news';
+import Main from './components/MainComponent';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
 
@@ -15,14 +17,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Skater's Map</NavbarBrand>
-          </div>
-        </Navbar>
-        <News articles={this.state.articles} />
-      </div>
+        <BrowserRouter>
+            <div className="App">
+                <Main />
+            </div>
+        </BrowserRouter>
     );
   }
 }
