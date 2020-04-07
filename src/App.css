@@ -1,3 +1,9 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 .row-header{
     margin:0px auto;
     padding:0px auto;
@@ -11,15 +17,79 @@
 }
 
 .footer{
-    background-color: #D1C4E9;
+    background-color: skyblue;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
 }
+
+/* Logo*/
+
+.logo {
+    background: transparent;
+    padding: 20px 20px;
+    text-align: center;    
+    position: relative;
+} 
+.logoImg{
+    position: absolute;
+    width:30px;
+    top:-10px;
+    left:50px;
+    transition: left 1s ease-out 0.5s, transform 1s step-end 0.5s;
+}
+.logo:hover .logoImg{
+    left:200px;
+    transform: scale(-1, 1);
+    transition: left 1s ease-out 0.5s,transform 1s step-end 0.5s;
+}
+.logo span {
+  font-family: 'Merriweather', serif;
+  position: relative;
+  color: floralwhite;
+  font-size: 30px;
+  font-weight: normal;
+  padding: 8px 20px 7px 20px;
+  border-top: 4px solid;
+  border-left: 4px solid;
+  display: inline-block;
+  margin: 0;
+  line-height: 1;
+}
+.logo span:before {
+   content: ""; 
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: -18px;
+  left: -18px;
+  border: 4px solid floralwhite;
+  box-sizing: border-box;
+}
+
+
+/*LOGO-end*/
+.navbar-collapse{
+    justify-content: end;
+}
+
 .jumbotron {
-    padding:70px 30px 70px 30px;
-    margin:0px auto;
-    background: #9575CD ;
-    color:floralwhite;
+    padding:0 !important;
+    margin:0 0 40px 0 !important;
+    color:darkblue;
+    background-color: transparent !important;
+    height:250px;
+    position: relative;
+    
+}
+.jumbotron__info>h1{
+    padding:15px 0;
+}
+
+.jumbotron>img{
+    object-fit: cover;
+    z-index:-1;
+    position:absolute;
+    
 }
 
 address{
@@ -29,5 +99,73 @@ address{
 }
 
 .navbar-dark {
-    background-color: #512DA8;
+    background-color: #007bff;
 }
+
+.card{
+    margin-bottom:50px;
+}
+.card-title{
+    font-size:30px;
+    font-weight: bold;
+}
+.card-text{
+    font-size:24px;
+}
+
+.routeBtn{
+   text-align:center;
+    margin-bottom:20px;
+}
+.btn-social-icon{
+    margin-right:5px;
+}
+
+.newslist{
+    border-radius: 5px;
+    border: 1px solid lightblue;
+    padding:10px;
+}
+.newslist>h5{
+    margin-bottom:20px;
+}
+
+.newslist__item{
+    display:flex;
+    align-items: center;
+    margin-bottom:20px;
+    border-bottom:1px solid;
+    padding:6px 0px 10px 0px;;
+}
+
+
+.newslist__item:last-child{
+    border-bottom:0px;
+    padding-bottom:0px;
+}
+.newslist_item__title{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    padding:10px;
+    
+}
+.newslist_item__title:hover{
+    box-shadow: -5px 3px 17px 0px rgba(50, 50, 50, 0.2);
+    border:1px solid lightgrey;
+    border-radius: 10px;
+    padding:9px;
+    text-decoration: none;
+}
+.newslist_item__title>i{
+    transform: rotate(0deg);
+    transition:all 0.2s ease-out 0.2s;
+}
+.newslist_item__title:hover i{
+    transform: rotate(20deg);
+    transition:all 0.2s ease-out 0.2s;
+}
+.newslist_item__title>span{
+    line-height: 1;
+}
+
