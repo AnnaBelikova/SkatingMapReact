@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label} from 'reactstrap';
-import NewsList from './NewsListComponent';
-import { NEWS } from '../shared/news';
+
 
 
 function RenderMap() {
@@ -22,7 +21,7 @@ class Home extends Component {
         super(props);
         this.state = {
             isModalOpen: false,
-            articles: NEWS,
+            
         };
         this.toggleModal = this.toggleModal.bind(this);
         this.handleRoute = this.handleRoute.bind(this);
@@ -42,20 +41,14 @@ class Home extends Component {
     }
     render(){
         return(
-            
-            <div className="container">
-                
+        <div className="col-9 col-md main_block">
                 <div className="row " className="routeBtn">
                     <Button variant="outlined" size="large" color="primary" onClick = {this.toggleModal}>Построить маршрут</Button>
                 </div>
                 <div className="row align-items-start">
-                    <div className="col-9 col-md">
+                    
                         <RenderMap/>
-                    </div>
-                    <div class="col-3 newslist">
-                        <h5 className="newslist__title" >Новости на дорогах</h5>
-                        <NewsList articles={this.state.articles} ></NewsList>
-                    </div>
+                   
                 </div>
                  <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal} >
                     <ModalHeader toggle = {this.toggleModal} > 
@@ -75,7 +68,7 @@ class Home extends Component {
                         </Form> 
                     </ModalBody> 
                 </Modal>
-            </div>
+        </div>
         )};
 }
 

@@ -3,15 +3,18 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
- function RenderArticle({article}) {
-        if (article != null){
+ function RenderRoute({route}) {
+        if (route != null){
             return(
                
                 <Card>
-                    <CardImg width='100%' object src={article.image} alt={article.name}/>
                     <CardBody>
-                        <CardTitle>{article.name}</CardTitle>
-                        <CardText>{article.description}</CardText>
+                        <CardTitle>{route.name}</CardTitle>
+                        <div className="routes_category">{route.category}</div>
+                        <CardText>
+                            <p>{route.description}</p>
+                            <p className="routes_direction">{route.direction}</p>
+                        </CardText>
                     </CardBody>
                 
                 </Card>
@@ -60,24 +63,24 @@ import { Link } from 'react-router-dom';
             );
     }
 
-    const ArticleDetail=(props) => {
+    const RouteDetail=(props) => {
       
-        if (props.article != null){
+        if (props.route != null){
             return (
                 <div className="col-9 col-md main_block">
                     <div className="row">
                     <Breadcrumb>
                         
                         <BreadcrumbItem>
-                        <Link to="/news">News</Link>
+                        <Link to="/routes">Маршруты</Link>
                         </BreadcrumbItem>
                         <BreadcrumbItem active>
-                        {props.article.name}
+                        {props.route.name}
                         </BreadcrumbItem>
                     
                     </Breadcrumb>
                     <div className="col-12">
-                        <h3>{props.article.name}</h3>
+                        <h3>{props.route.name}</h3>
                         <hr />
                     </div>
                 </div>
@@ -85,14 +88,14 @@ import { Link } from 'react-router-dom';
     
                         <div className = "col-12 col-md-12 m-1">
     
-                            <RenderArticle article={props.article}/>
+                            <RenderRoute route={props.route}/>
     
                         </div>
                         <div className = "col-12 col-md-12 m-1">
 
                             <RenderComments comments={props.comments} 
                           
-                            articleId={props.article.id} />
+                            routeId={props.route.id} />
 
                         </div>
 
@@ -109,4 +112,4 @@ import { Link } from 'react-router-dom';
 
 
 
-export default ArticleDetail;
+export default RouteDetail;

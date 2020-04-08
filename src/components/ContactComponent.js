@@ -82,23 +82,20 @@ class Contact extends Component {
          const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
         
            return(
-        <div className="container">
+        <div className="col-9 col-md main_block">
         <div className="row">
                 <Breadcrumb>
-                    <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>Contact Us</BreadcrumbItem>
+                    <BreadcrumbItem><Link to="/home">Главная</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>Контакты</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
-                    <h3>Contact Us</h3>
+                    <h3>Контакты</h3>
                     <hr />
                 </div>                
             </div>
             <div className="row row-content">
-                <div className="col-12">
-                <h3>Location Information</h3>
-                </div>
                 <div className="col-12 col-sm-4 offset-sm-1">
-                         <h5>Our Address</h5>
+                         
                     <address>
 		              Murino<br />
 		              Shuvalova 9, 9<br />
@@ -109,24 +106,22 @@ class Contact extends Component {
                     </address>
                 </div>
                 <div className="col-12 col-sm-6 offset-sm-1">
-                    <h5>Map of our Location</h5>
-                </div>
-                <div className="col-12 col-sm-11 offset-sm-1">
                     <div className="btn-group" role="group">
                         <a role="button" className="btn btn-primary" href="tel:+85212345678"><i className="fa fa-phone"></i> Call</a>
                         <a role="button" className="btn btn-info"><i className="fa fa-skype"></i> Skype</a>
                         <a role="button" className="btn btn-success" href="mailto:skate_map@skating.net"><i className="fa fa-envelope-o"></i> Email</a>
                     </div>
                 </div>
+             
             </div>
                 <div className="row row-content">
                    <div className="col-12">
-                      <h3>Send us your Feedback</h3>
+                      <h3>Обратная связь</h3>
                    </div>
                     <div className="col-12 col-md-9">
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup row>
-                                <Label htmlFor="firstname" md={2}>First Name</Label>
+                                <Label htmlFor="firstname" md={2}>Имя</Label>
                                 <Col md={10}>
                                     <Input type="text" id="firstname" name="firstname"
                                         placeholder="First Name"
@@ -139,7 +134,7 @@ class Contact extends Component {
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label htmlFor="lastname" md={2}>Last Name</Label>
+                                <Label htmlFor="lastname" md={2}>Фамилия</Label>
                                 <Col md={10}>
                                     <Input type="text" id="lastname" name="lastname"
                                         placeholder="Last Name"
@@ -152,7 +147,7 @@ class Contact extends Component {
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label htmlFor="telnum" md={2}>Contact Tel.</Label>
+                                <Label htmlFor="telnum" md={2}>Телефон</Label>
                                 <Col md={10}>
                                     <Input type="tel" id="telnum" name="telnum"
                                         placeholder="Tel. Number"
@@ -185,7 +180,7 @@ class Contact extends Component {
                                                 name="agree"
                                                 checked={this.state.agree}
                                                 onChange={this.handleInputChange} /> {' '}
-                                            <strong>May we contact you?</strong>
+                                            <strong>Как лучше с Вами связаться?</strong>
                                         </Label>
                                     </FormGroup>
                                 </Col>
@@ -199,7 +194,7 @@ class Contact extends Component {
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label htmlFor="message" md={2}>Your Feedback</Label>
+                                <Label htmlFor="message" md={2}>Сообщение</Label>
                                 <Col md={10}>
                                     <Input type="textarea" id="message" name="message"
                                         rows="12"
@@ -210,7 +205,7 @@ class Contact extends Component {
                             <FormGroup row>
                                 <Col md={{size: 10, offset: 2}}>
                                     <Button type="submit" color="primary">
-                                        Send Feedback
+                                        Отправить
                                     </Button>
                                 </Col>
                             </FormGroup>

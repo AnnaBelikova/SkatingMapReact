@@ -123,6 +123,7 @@ export const COMMENTS =
     {
         id: 15,
         articleId: 3,
+        routeId: 0,
         rating: 5,
         comment: "Imagine all the eatables, living in conFusion!",
         author: "John Lemon",

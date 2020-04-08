@@ -10,36 +10,33 @@ function About(props) {
   
 
     return(
-        <div className="container">
+        <div className='col-12 col-md-9 main_block'>
             <div className="row">
                 <Breadcrumb>
-                    <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>About Us</BreadcrumbItem>
+                    <BreadcrumbItem><Link to="/home">Главная</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>О проекте</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
-                    <h3>About Us</h3>
+                    <h3>О проекте</h3>
                     <hr />
                 </div>                
             </div>
             <div className="row row-content">
                 <div className="col-12 col-md-6">
-                    <h2>Our History</h2>
-                    <p>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.</p>
-                    <p>The restaurant traces its humble beginnings to <em>The Frying Pan</em>, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</p>
+                    <p>Проект только развивается. Наша цель - помочь роллерам комфортно передвигаться по городу и вовремя узнавать о перекопанных улицах и плохих дорогах, которые могут не только уменьшить удовольствие от поездки, но и навредить здоровью.</p>
+                    
                 </div>
                 <div className="col-12 col-md-5">
                     <Card>
-                        <CardHeader className="bg-primary text-white">Facts At a Glance</CardHeader>
+                        <CardHeader className="bg-primary text-white">Факты</CardHeader>
                         <CardBody>
                             <dl className="row p-1">
-                                <dt className="col-6">Started</dt>
-                                <dd className="col-6">3 Feb. 2013</dd>
-                                <dt className="col-6">Major Stake Holder</dt>
-                                <dd className="col-6">HK Fine Foods Inc.</dd>
-                                <dt className="col-6">Last Year's Turnover</dt>
-                                <dd className="col-6">$1,250,375</dd>
-                                <dt className="col-6">Employees</dt>
-                                <dd className="col-6">40</dd>
+                                <dt className="col-6">Начало работы над проектом</dt>
+                                <dd className="col-6">08 апреля 2020</dd>
+                                <dt className="col-6">Начальный капитал</dt>
+                                <dd className="col-6">0 рублей и банка кофе</dd>
+                                <dt className="col-6">Инициаторы</dt>
+                                <dd className="col-6">2</dd>
                             </dl>
                         </CardBody>
                     </Card>
@@ -48,11 +45,9 @@ function About(props) {
                     <Card>
                         <CardBody className="bg-faded">
                             <blockquote className="blockquote">
-                                <p className="mb-0">You better cut the pizza in four pieces because
-                                    I'm not hungry enough to eat six.</p>
-                                <footer className="blockquote-footer">Yogi Berra,
-                                <cite title="Source Title">The Wit and Wisdom of Yogi Berra,
-                                    P. Pepe, Diversion Books, 2014</cite>
+                                <p className="mb-0">А какой смысл покупать машину, чтобы разъезжать по асфальту? Там, где асфальт, ничего интересного, а где интересно, там нет асфальта.</p>
+                                <footer className="blockquote-footer">Аркадий и Борис Стругацкие,
+                                <cite title="Source Title">citatnica.ru</cite>
                                 </footer>
                             </blockquote>
                         </CardBody>

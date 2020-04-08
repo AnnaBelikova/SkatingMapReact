@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import News from './NewsComponent';
 import ArticleDetail from './ArticleDetailComponent';
+import RouteDetail from './RouteDetailComponent';
 import { NEWS } from '../shared/news';
 import { COMMENTS } from '../shared/comments';
+import { ROUTES } from '../shared/routes';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
+import NewsList from './NewsListComponent';
+import Routes from './RoutesComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 class Main extends Component {
@@ -18,6 +22,7 @@ class Main extends Component {
     this.state = {
         articles: NEWS,
         comments: COMMENTS,
+        routes: ROUTES,
     };
   }
 
@@ -36,18 +41,37 @@ class Main extends Component {
             comments={this.state.comments.filter((comment) => comment.articleId === parseInt(match.params.articleId,10))} />
       );
     };
+
+ const RouteWithId = ({match}) => {
+      return(
+            <RouteDetail route={this.state.routes.filter((route) => route.id === parseInt(match.params.routeId,10))[0]} 
+            comments={this.state.comments.filter((comment) => comment.routeId === parseInt(match.params.routeId,10))} />
+      );
+};
     return (
         <div>
             <Header />
-                <Switch>
-                      <Route path='/home' component={HomePage} />
-                      <Route exact path='/news' component={() => <News articles={this.state.articles} />} />
-                        <Route exact path='/contactus' component={Contact} />} />
-                        <Route exact path='/aboutus' component={About} />} />
-                        <Route path="/news/:articleId" component={ArticleWithId} />
-                      <Redirect to="/home" />
-                </Switch>
-            
+            <div className='container'>
+                <div className="row">
+        
+                    <Switch>
+                          <Route path='/home' component={HomePage} />
+                          <Route exact path='/news' component={() => <News articles={this.state.articles} />} />
+                            <Route exact path='/contactus' component={Contact} />} />
+                            <Route exact path='/aboutus' component={About} />} />
+                            <Route exact path='/routes' component={() => <Routes routes={this.state.routes} />} />
+                            <Route path="/news/:articleId" component={ArticleWithId} />
+                            <Route path="/routes/:routeId" component={RouteWithId} />
+                          <Redirect to="/home" />
+                    </Switch>
+                    <div class="col-3">
+                        <div class="newslist">
+                            <h5 className="newslist__title" >Новости на дорогах</h5>
+                            <NewsList articles={this.state.articles} ></NewsList>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <Footer />
         </div>
     );

@@ -1,50 +1,101 @@
 import React, { Component } from 'react';
 import { Media } from 'reactstrap';
 import { Card, CardImg, CardImgOverlay,
-    CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+    CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 function RenderNewsItem({article, onClick}){
     return(
-        <Card>
-        <Link to={`/news/${article.id}`} >
-
-                <CardImg width="100%" src={article.image} alt={article.name} />
-                <CardImgOverlay>
-                    <CardTitle>{article.name}</CardTitle>
-                </CardImgOverlay>
-            </Link>
-            </Card>
+        <div className="news__item row">
+        
+                <div className="col-12 col-md-3"><img src={article.image} alt={article.name} /></div>
+                <div className="news_item__info col-12 col-md-9">
+                    <div className="news_item__title">{article.name}</div>
+        
+                    <div className="news_item__text"> {article.description} </div>
+        
+                    <Link to={`/news/${article.id}`} >
+                        <Button color="primary" className='news_item__detailbtn'>Подробнее</Button>
+                    </Link>
+                </div>
+            
+        </div>
     );
 }
 
-    const News = (props) => {
+    class News extends Component {
+ constructor(props) {
+        super(props);
+        this.state = {
+            isModalOpen: false,
+            
+        };
+        this.toggleModal = this.toggleModal.bind(this);
+        this.handleNews = this.handleNews.bind(this);
+    }
+    
+     toggleModal() {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
+    }
 
-        const articles = props.articles.map((article) => {
+    handleNews(event) {
+        this.toggleModal();
+        alert("Заголовок: " + this.news_title.value + " Текст: " + this.news_text.value +
+            " Поделись!" );
+        event.preventDefault();
+    }
+        
+    render(){
+        const articles = this.props.articles.map((article) => {
             return (
-                <div className="col-12 col-md-5 m-1"  key={article.id}>
-                    <RenderNewsItem article={article} onClick={props.onClick} />
+                <div className=' col-12'  key={article.id}>
+                    <RenderNewsItem article={article} onClick={this.props.onClick} />
                 </div>
             );
         });
-
         return (
-               <div className="container">
-                <div className="row">
+               <div className='col-12 col-md-9 main_block'>
+                <div className='row'>
                     <Breadcrumb>
-                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>News</BreadcrumbItem>
+                        <BreadcrumbItem><Link to='/home'>Главная</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Новости</BreadcrumbItem>
                     </Breadcrumb>
-                    <div className="col-12">
-                        <h3>News</h3>
-                        <hr />
+                    <div className='col-12'>
+                        <div className="row title__add">
+                            <h3>Новости</h3>
+                            <Button color="primary" onClick = {this.toggleModal}>Добавить новость</Button>
+                        </div>
                     </div>                
                 </div>
-                <div className="row">
+                <div className='row news__items'>
                     {articles}
                 </div>
+ <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal} >
+                    <ModalHeader toggle = {this.toggleModal} > 
+                        Добавь свою новость
+                    < /ModalHeader> 
+                    <ModalBody>
+                        <Form onSubmit = {this.handleNews} >
+                            <FormGroup >
+                                <Label htmlFor = "news_title" > Заголовок < /Label> 
+                                <Input type = "text" id = "news_title" name = "news_title" innerRef = {(input) => this.news_title = input}/> 
+                            </FormGroup> 
+                            <FormGroup >
+                                <Label htmlFor = "news_text" > Текст новости < /Label> 
+                                <Input type = "textarea" rows="10" id = "news_text" name = "news_text" innerRef = {(input) => this.news_text = input}/> 
+                            </FormGroup> 
+                            <FormGroup >
+                                <Label htmlFor = "news_photo" > Добавить фото < /Label> 
+                                <Input type = "file" id = "news_photo" name = "news_photo" innerRef = {(input) => this.news_photo = input}/> 
+                            </FormGroup> 
+                            <Button type = "submit" value = "submit" color = "primary" > Поделись! < /Button> 
+                        </Form> 
+                    </ModalBody> 
+                </Modal>
             </div>
-        );
+        )};
     }
 
 export default News;

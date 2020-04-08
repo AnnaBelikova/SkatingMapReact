@@ -13,7 +13,7 @@ body{
     margin:0px auto;
     padding: 50px 0px 50px 0px;
     border-bottom: 1px ridge;
-    min-height:400px;
+  
 }
 
 .footer{
@@ -169,3 +169,57 @@ address{
     line-height: 1;
 }
 
+.main_block{
+    margin-right: 0px;
+    margin-bottom: 40px;
+}
+
+.title__add{
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.news__items{
+    padding:20px;
+    border-radius: 20px;
+    border:1px solid lightgray;
+    margin-bottom:40px;
+    background-color: gainsboro;
+}
+.news__item{
+    background-color: floralwhite;
+    border-radius: 10px;
+    padding:15px;
+    align-items: center;
+    margin-bottom:20px;
+}
+.news__item:hover{
+   box-shadow:         5px 5px 15px 0px rgba(50, 50, 50, 0.75);
+}
+.news_item__title{
+    font-size:24px;
+    margin-bottom:5px;
+}
+.news_item__text{
+     margin-bottom:45px;
+}
+.news_item__info{
+    position:relative;
+}
+.news_item__detailbtn{
+    position:absolute;
+    right:0;
+    bottom:0;
+}
+dt{
+    margin-bottom: 15px;
+}
+.card-body>dl{
+    margin-bottom: 0;
+}
+.routes_category{
+    margin-bottom:20px;
+}
+.routes_direction{
+    font-style: italic;
+    margin-top: 10px;
+}
