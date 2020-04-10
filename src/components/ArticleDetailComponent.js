@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
             return(
                
                 <Card>
-                    <CardImg width='100%' object src={article.image} alt={article.name}/>
+                    <CardImg width='100%' object="true" src={article.image} alt={article.name}/>
                     <CardBody>
                         <CardTitle>{article.name}</CardTitle>
                         <CardText>{article.description}</CardText>
@@ -48,7 +48,7 @@ import { Link } from 'react-router-dom';
 
             <div>
             
-                <h4>Comments</h4>
+                <h4>Комментарии</h4>
                 <ul className="list-unstyled">
                   
                         { com }
@@ -69,7 +69,7 @@ import { Link } from 'react-router-dom';
                     <Breadcrumb>
                         
                         <BreadcrumbItem>
-                        <Link to="/news">News</Link>
+                        <Link to="/news">Новости</Link>
                         </BreadcrumbItem>
                         <BreadcrumbItem active>
                         {props.article.name}

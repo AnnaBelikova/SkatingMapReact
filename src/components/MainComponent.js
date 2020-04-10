@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import News from './NewsComponent';
 import ArticleDetail from './ArticleDetailComponent';
 import RouteDetail from './RouteDetailComponent';
@@ -11,7 +10,7 @@ import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
-import NewsList from './NewsListComponent';
+import TabBox from './TabBoxComponent';
 import Routes from './RoutesComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -64,10 +63,9 @@ class Main extends Component {
                             <Route path="/routes/:routeId" component={RouteWithId} />
                           <Redirect to="/home" />
                     </Switch>
-                    <div class="col-3">
-                        <div class="newslist">
-                            <h5 className="newslist__title" >Новости на дорогах</h5>
-                            <NewsList articles={this.state.articles} ></NewsList>
+                    <div className="col-3">
+                        <div className="newslist">
+                            <TabBox routes={this.state.routes} articles={this.state.articles} ></TabBox>
                         </div>
                     </div>
                 </div>

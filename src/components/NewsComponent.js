@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { Media } from 'reactstrap';
-import { Card, CardImg, CardImgOverlay,
-    CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
+import {  Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 function RenderNewsItem({article, onClick}){
     return(
         <div className="news__item row">
         
-                <div className="col-12 col-md-3"><img src={article.image} alt={article.name} /></div>
+                <div className="col-12 col-md-3"><img width="100%" src={article.image} alt={article.name} /></div>
                 <div className="news_item__info col-12 col-md-9">
                     <div className="news_item__title">{article.name}</div>
         

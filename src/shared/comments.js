@@ -2,163 +2,61 @@ export const COMMENTS =
 [
     {
         id: 0,
-        articleId: 0,
+        articleId: 3,
         rating: 5,
-        comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
-        date: "2012-10-16T17:57:28.556094Z"
+        comment: "Отличная новость, спасибо!!",
+        author: "Антон Каток",
+        date: "2020-10-16T17:57:28.556094Z"
     },
     {
         id: 1,
-        articleId: 0,
-        rating: 4,
-        comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
-        date: "2014-09-05T17:57:28.556094Z"
+        articleId: 3,
+        rating: 2,
+        comment: "Эта дорога уже давно известна среди тех, кто хотя бы раз в месяц ролики надевает!",
+        author: "Вася Петькин",
+        date: "2020-09-05T17:57:28.556094Z"
     },
     {
         id: 2,
         articleId: 0,
         rating: 3,
-        comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
-        date: "2015-02-13T17:57:28.556094Z"
+        comment: "Интересно, кто кого! Я бы поставил на джип",
+        author: "Вася Петькин",
+        date: "2020-02-13T17:57:28.556094Z"
     },
     {
         id: 3,
-        articleId: 0,
+        articleId: 2,
         rating: 4,
-        comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
-        date: "2013-12-02T17:57:28.556094Z"
+        comment: "Опять...Золотые трамвайные пути, каждый год меняют на одном и том же месте.",
+        author: "Анна Фигуристка",
+        date: "2020-12-02T17:57:28.556094Z"
     },
+
     {
         id: 4,
-        articleId: 0,
-        rating: 2,
-        comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
-        date: "2011-12-02T17:57:28.556094Z"
+        articleId: 1,
+        rating: 4,
+        comment: "Ну вот, теперь на работу придется по другой дороге ездить! А на сколько раскопали?",
+        author: "Виталий Савушкин",
+        date: "2020-09-05T17:57:28.556094Z"
     },
     {
         id: 5,
         articleId: 1,
-        rating: 5,
-        comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
-        date: "2012-10-16T17:57:28.556094Z"
+        rating: 3,
+        comment: "Вроде на месяц!",
+        author: "Дориан Грей",
+        date: "2020-02-13T17:57:28.556094Z"
     },
+   
     {
         id: 6,
-        articleId: 1,
-        rating: 4,
-        comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
-        date: "2014-09-05T17:57:28.556094Z"
-    },
-    {
-        id: 7,
-        articleId: 1,
-        rating: 3,
-        comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
-        date: "2015-02-13T17:57:28.556094Z"
-    },
-    {
-        id: 8,
-        articleId: 1,
-        rating: 4,
-        comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
-        date: "2013-12-02T17:57:28.556094Z"
-    },
-    {
-        id: 9,
-        articleId: 1,
-        rating: 2,
-        comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
-        date: "2011-12-02T17:57:28.556094Z"
-    },
-    {
-        id: 10,
-        articleId: 2,
-        rating: 5,
-        comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
-        date: "2012-10-16T17:57:28.556094Z"
-    },
-    {
-        id: 11,
-       articleId: 2,
-        rating: 4,
-        comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
-        date: "2014-09-05T17:57:28.556094Z"
-    },
-    {
-        id: 12,
-        articleId: 2,
-        rating: 3,
-        comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
-        date: "2015-02-13T17:57:28.556094Z"
-    },
-    {
-        id: 13,
-        articleId: 2,
-        rating: 4,
-        comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
-        date: "2013-12-02T17:57:28.556094Z"
-    },
-    {
-        id: 14,
-        articleId: 2,
-        rating: 2,
-        comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
-        date: "2011-12-02T17:57:28.556094Z"
-    },
-    {
-        id: 15,
-        articleId: 3,
         routeId: 0,
         rating: 5,
-        comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
-        date: "2012-10-16T17:57:28.556094Z"
+        comment: "Отличный маршрут!!!!!",
+        author: "Нуб",
+        date: "2020-10-16T17:57:28.556094Z"
     },
-    {
-        id: 16,
-        articleId: 3,
-        rating: 4,
-        comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
-        date: "2014-09-05T17:57:28.556094Z"
-    },
-    {
-        id: 17,
-        articleId: 3,
-        rating: 3,
-        comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
-        date: "2015-02-13T17:57:28.556094Z"
-    },
-    {
-        id: 18,
-        articleId: 3,
-        rating: 4,
-        comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
-        date: "2013-12-02T17:57:28.556094Z"
-    },
-    {
-        id: 19,
-        articleId: 3,
-        rating: 2,
-        comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
-        date: "2011-12-02T17:57:28.556094Z"
-    }
+  
 ]

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
@@ -42,7 +42,7 @@ class Header extends Component {
                     
                     <NavbarBrand className = "mr-auto" href = "/" > 
                         
-                        <div class="logo">
+                        <div className="logo">
                             <img className="logoImg" src="../assets/images/logo.png" width="20" alt="logo"/>
                             <span>Skater's MAP</span>
                         </div>
@@ -73,7 +73,7 @@ class Header extends Component {
             </Navbar> 
             
             <Jumbotron>
-                <img src="../assets/images/sum4_250.jpg" class="img-fluid" alt=""/>
+                <img src="../assets/images/sum4_250.jpg" className="img-fluid" alt=""/>
                 <div className = "container" >
                     <div className = "row row-header" >
                         <div className = "jumbotron__info col-12 col-lg-6" >

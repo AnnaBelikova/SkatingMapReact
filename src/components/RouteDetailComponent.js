@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody,
+import React from 'react';
+import { Card, CardText, CardBody,
     CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -12,8 +12,9 @@ import { Link } from 'react-router-dom';
                         <CardTitle>{route.name}</CardTitle>
                         <div className="routes_category">{route.category}</div>
                         <CardText>
-                            <p>{route.description}</p>
-                            <p className="routes_direction">{route.direction}</p>
+                            <span>{route.description}</span>
+                            <br/>
+                            <span className="routes_direction">{route.direction}</span>
                         </CardText>
                     </CardBody>
                 

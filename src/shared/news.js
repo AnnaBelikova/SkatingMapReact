@@ -2,42 +2,30 @@ export const NEWS =
     [
         {
         id: 0,
-        name:'Uthappizza',
+        name:'Столкновение на Невском',
         image: '/assets/images/crash.jpg',
-        category: 'mains',
-        label:'Hot',
-        price:'4.99',
-        featured: true,
-        description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.'                    
+        category: 'accident',
+        description:'На Невско столкнулись Лада Седан ("Баклажан") и Джип. Дорога временно перекрыта (даже по тротуару не проехать).'                    
         },
         {
         id: 1,
-        name:'Zucchipakoda',
-        image: '/assets/images/crash.jpg',
-        category: 'appetizer',
-        label:'',
-        price:'1.99',
-        featured: false,
-        description:'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce'
+        name:'Раскопали Блюхера',
+        image: '/assets/images/repair.jpg',
+        category: 'repair',
+        description:'По Блюхера теперь проедем не скоро! Там асфальт полностью сняли. Видимо, будет капитальный ремонт дороги.'
         },
         {
         id: 2,
-        name:'Vadonut',
-        image: '/assets/images/crash.jpg',
-        category: 'appetizer',
-        label:'New',
-        price:'1.99',
-        featured: false,
-        description:'A quintessential ConFusion experience, is it a vada or is it a donut?'
+        name:'Ведутся ремонтные работы на Просвещения',
+        image: '/assets/images/repair.jpg',
+        category: 'repair',
+        description:'В новостях сообщили о том, что по Проспекту Просвещения между пр. Культуры и ул. Д.Бедного снова раскопали трамвайные пути. Переезжать дорогу будет очень неудобно.'
         },
         {
         id: 3,
-        name:'ElaiCheese Cake',
-        image: '/assets/images/crash.jpg',
-        category: 'dessert',
-        label:'',
-        price:'2.99',
-        featured: false,
-        description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms'
+        name:'Отличный кусок для полосить недалеко от Комендантского!!!',
+        image: '/assets/images/good.jpg',
+        category: 'finding',
+        description:' Нашел отличную дорогу на Парушутной улице недалеко от завода Ниссан. Народу мало, дорога отличная! Как раз для любителей полосить.'
         }
     ];

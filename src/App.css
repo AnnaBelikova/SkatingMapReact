@@ -223,3 +223,7 @@ dt{
     font-style: italic;
     margin-top: 10px;
 }
+.news_list,.routes_list{
+    width:90%;
+    margin:auto;
+}
