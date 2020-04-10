@@ -3,6 +3,39 @@ import { Card, CardText, CardBody,
     CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import { Map as LeafletMap, TileLayer, Polyline, Marker, Popup } from 'react-leaflet';
+
+
+
+
+function RenderMap({route}) {
+    
+    return(
+         <LeafletMap
+        center={[59.938946, 30.314982]}
+        zoom={10}
+        maxZoom={20}
+        attributionControl={true}
+        zoomControl={true}
+        doubleClickZoom={true}
+        scrollWheelZoom={true}
+        dragging={true}
+        animate={true}
+        easeLinearity={0.35}
+      >
+        <TileLayer
+          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+        />
+        <Polyline key={route.id} color={'red'} positions={route.points}/>
+        <Marker position={[59.938946, 30.314982]}>
+        
+        </Marker>
+  
+      </LeafletMap>
+        
+    );
+}
+
  function RenderRoute({route}) {
         if (route != null){
             return(
@@ -67,6 +100,7 @@ import { Link } from 'react-router-dom';
     const RouteDetail=(props) => {
       
         if (props.route != null){
+            
             return (
                 <div className="col-9 col-md main_block">
                     <div className="row">
@@ -81,6 +115,8 @@ import { Link } from 'react-router-dom';
                     
                     </Breadcrumb>
                     <div className="col-12">
+                        <div className=' col-12'>
+                        </div>
                         <h3>{props.route.name}</h3>
                         <hr />
                     </div>
@@ -88,6 +124,7 @@ import { Link } from 'react-router-dom';
                     <div className = "row">
     
                         <div className = "col-12 col-md-12 m-1">
+                            <RenderMap route={props.route}/>
     
                             <RenderRoute route={props.route}/>
     

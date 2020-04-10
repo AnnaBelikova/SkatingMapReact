@@ -227,3 +227,10 @@ dt{
     width:90%;
     margin:auto;
 }
+.nav-item{
+    cursor:pointer;
+}
+.leaflet-container {
+    height: 800px;
+    width: 800px;
+}

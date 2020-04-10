@@ -1,18 +1,36 @@
 import React, {Component} from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label} from 'reactstrap';
+import { Map as LeafletMap, TileLayer, Polyline, Marker, Popup } from 'react-leaflet';
 
 
 
-function RenderMap() {
 
+function RenderMap({bad, onClick}) {
+    
     return(
-        <Card>
-            <CardImg src='../assets/images/centSpb.jpg' alt="Карта" />
-            <CardBody>
-                <CardTitle>Карта Санкт-Петербурга</CardTitle>
-                <CardText>Все улицы, проспекты бульвары и другие катательные артерии города</CardText>
-            </CardBody>
-        </Card>
+         <LeafletMap
+        center={[59.938946, 30.314982]}
+        zoom={10}
+        maxZoom={20}
+        attributionControl={true}
+        zoomControl={true}
+        doubleClickZoom={true}
+        scrollWheelZoom={true}
+        dragging={true}
+        animate={true}
+        easeLinearity={0.35}
+      >
+        <TileLayer
+          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+        />
+        <Polyline key={bad.id} color={'red'} positions={bad.points}/>
+        <Marker position={[59.978637, 30.384839]}>
+        <Popup>Осторожно, Блюхера раскопано!!!</Popup>
+        
+        </Marker>
+  
+      </LeafletMap>
+        
     );
 }
 
@@ -39,7 +57,19 @@ class Home extends Component {
             " ВПЕРЕД!" );
         event.preventDefault();
     }
+    
+    
+    
+   
+
     render(){
+         const myMap = this.props.bad.map((bad) => {
+            return (
+                <div className=' col-12'  key={bad.id}>
+                    <RenderMap bad={bad} onClick={this.props.onClick} />
+                </div>
+            );
+        });
         return(
         <div className="col-9 col-md main_block">
                 <div className="row " className="routeBtn">
@@ -47,12 +77,12 @@ class Home extends Component {
                 </div>
                 <div className="row align-items-start">
                     
-                        <RenderMap/>
+                        {myMap}
                    
                 </div>
                  <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal} >
                     <ModalHeader toggle = {this.toggleModal} > 
-                        Построить маршрут 
+                        Построить маршрут  
                     < /ModalHeader> 
                     <ModalBody>
                         <Form onSubmit = {this.handleRoute} >

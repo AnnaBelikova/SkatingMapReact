@@ -16,7 +16,7 @@ function RenderNewsListItem({article, onClick}){
 
 function RenderRouteListItem({route, onClick}){
     return(
-            <Link className="newslist_item__title" to={`/route/${route.id}`} >
+            <Link className="newslist_item__title" to={`/routes/${route.id}`} >
              
                     <span>{route.name}</span>
                     <i className="fa fa-hand-o-right" aria-hidden="true"></i>
@@ -72,14 +72,14 @@ const [activeTab, setActiveTab] = useState('1');
       <TabContent activeTab={activeTab}>
         <TabPane tabId="1">
           <Row>
-            <div class="news_list">
+            <div className="news_list">
                     {newsList}
                 </div>
           </Row>
         </TabPane>
  <TabPane tabId="2">
           <Row>
-             <div class="routes_list">
+             <div className="routes_list">
                     {routesList}
                 </div>
           </Row>

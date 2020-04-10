@@ -5,6 +5,7 @@ import RouteDetail from './RouteDetailComponent';
 import { NEWS } from '../shared/news';
 import { COMMENTS } from '../shared/comments';
 import { ROUTES } from '../shared/routes';
+import { STREETS } from '../shared/bad.js';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
@@ -22,6 +23,7 @@ class Main extends Component {
         articles: NEWS,
         comments: COMMENTS,
         routes: ROUTES,
+        bad:STREETS,
     };
   }
 
@@ -54,7 +56,7 @@ class Main extends Component {
                 <div className="row">
         
                     <Switch>
-                          <Route path='/home' component={HomePage} />
+                          <Route path='/home' component={() => <Home bad={this.state.bad} />} />
                           <Route exact path='/news' component={() => <News articles={this.state.articles} />} />
                             <Route exact path='/contactus' component={Contact} />} />
                             <Route exact path='/aboutus' component={About} />} />
