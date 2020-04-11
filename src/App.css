@@ -231,6 +231,67 @@ dt{
     cursor:pointer;
 }
 .leaflet-container {
-    height: 800px;
-    width: 800px;
+    height: 600px;
+    width: 85%;
+    border-radius: 8px;
+    border:1px solid lightblue;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    padding:8px;
+    margin-right:1px;
+}
+.map_block{
+    width: 100%;
+    display: flex;
+}
+.map_tabs{
+    margin-top:20px;
+    width:10%;
+}
+.map_tab
+{
+    margin-bottom:-5px;
+    padding: 0;
+    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    color: darkblue;
+    font: bold 12px/35px 'Lucida sans', Arial, Helvetica;
+    height: 35px;
+    padding: 0 5px;
+    cursor:pointer;
+    position:relative;
+    border-radius:0 8px 0 0;
+}
+
+.all{
+    background: linear-gradient(to bottom, lightblue, white);
+}
+.good{
+    background: linear-gradient(to bottom, green, white);
+}
+.middle{
+    background: linear-gradient(to bottom, yellow, white);
+}
+.bad{
+    background: linear-gradient(to bottom, red, white);
+}
+.map_tab:hover
+{
+    box-shadow: 0 5px 2px rgba(0,0,0,0.3);
+    z-index:100;
+}
+.map_tab:active{
+    box-shadow: 0 7px 4px rgba(0,0,0,0.8);
+}
+
+.current
+{
+    box-shadow: 0 5px 2px rgba(0,0,0,0.3);
+    z-index:100;
+    transform: scale(1.1);
+}
+
+.visible{
+    display:block;
+}
+.hidden{
+    display:none;
 }

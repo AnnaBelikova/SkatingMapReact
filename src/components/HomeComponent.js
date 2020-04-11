@@ -1,45 +1,17 @@
 import React, {Component} from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label} from 'reactstrap';
-import { Map as LeafletMap, TileLayer, Polyline, Marker, Popup } from 'react-leaflet';
+import MapStreets from './MapStreetsComponent';
+import { STREETS } from '../shared/streets.js';
 
 
-
-
-function RenderMap({bad, onClick}) {
-    
-    return(
-         <LeafletMap
-        center={[59.938946, 30.314982]}
-        zoom={10}
-        maxZoom={20}
-        attributionControl={true}
-        zoomControl={true}
-        doubleClickZoom={true}
-        scrollWheelZoom={true}
-        dragging={true}
-        animate={true}
-        easeLinearity={0.35}
-      >
-        <TileLayer
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        <Polyline key={bad.id} color={'red'} positions={bad.points}/>
-        <Marker position={[59.978637, 30.384839]}>
-        <Popup>Осторожно, Блюхера раскопано!!!</Popup>
-        
-        </Marker>
-  
-      </LeafletMap>
-        
-    );
-}
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isModalOpen: false,
-            
+            streets:STREETS,
+            activeBtn: 'all',
         };
         this.toggleModal = this.toggleModal.bind(this);
         this.handleRoute = this.handleRoute.bind(this);
@@ -58,18 +30,11 @@ class Home extends Component {
         event.preventDefault();
     }
     
-    
-    
-   
-
+ 
+  
     render(){
-         const myMap = this.props.bad.map((bad) => {
-            return (
-                <div className=' col-12'  key={bad.id}>
-                    <RenderMap bad={bad} onClick={this.props.onClick} />
-                </div>
-            );
-        });
+ 
+        
         return(
         <div className="col-9 col-md main_block">
                 <div className="row " className="routeBtn">
@@ -77,9 +42,15 @@ class Home extends Component {
                 </div>
                 <div className="row align-items-start">
                     
-                        {myMap}
-                   
+                        <MapStreets streets={this.state.streets} />
+
+                        
                 </div>
+            
+            
+            
+            
+                
                  <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal} >
                     <ModalHeader toggle = {this.toggleModal} > 
                         Построить маршрут  
