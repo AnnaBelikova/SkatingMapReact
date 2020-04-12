@@ -11,27 +11,22 @@ import { Map as LeafletMap, TileLayer, Polyline, Marker, Popup } from 'react-lea
 function RenderMap({route}) {
     
     return(
-         <LeafletMap
-        center={[59.938946, 30.314982]}
-        zoom={10}
-        maxZoom={20}
-        attributionControl={true}
-        zoomControl={true}
-        doubleClickZoom={true}
-        scrollWheelZoom={true}
-        dragging={true}
-        animate={true}
-        easeLinearity={0.35}
-      >
-        <TileLayer
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        <Polyline key={route.id} color={'red'} positions={route.points}/>
-        <Marker position={[59.938946, 30.314982]}>
-        
-        </Marker>
-  
-      </LeafletMap>
+        <LeafletMap className="leafmap_route"
+            center={[59.938946, 30.314982]}
+            zoom={10}
+            maxZoom={20}
+            attributionControl={true}
+            zoomControl={true}
+            doubleClickZoom={true}
+            scrollWheelZoom={true}
+            dragging={true}
+            animate={true}
+            easeLinearity={0.35}>
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"/>
+            <Polyline key={route.id} color={'blue'} positions={route.points}/>
+
+        </LeafletMap>
         
     );
 }
@@ -40,15 +35,17 @@ function RenderMap({route}) {
         if (route != null){
             return(
                
-                <Card>
+                <Card className="route_card">
                     <CardBody>
-                        <CardTitle>{route.name}</CardTitle>
-                        <div className="routes_category">{route.category}</div>
-                        <CardText>
-                            <span>{route.description}</span>
+                        <div class='route_info'>
+                            <div className="routes_category"><b>Уровень сложности:</b> {route.category}</div>
+                            <div className="routes_author"><b>Добавил:</b> {route.author}</div>
+                            <div className="routes_date"><b>Дата:</b> {route.date}</div>
+                            <div className="routes_direction"><b>Протяженность:</b> {route.length}</div>
                             <br/>
-                            <span className="routes_direction">{route.direction}</span>
-                        </CardText>
+                            <div><em>{route.description}</em></div>
+                        </div>
+                        
                     </CardBody>
                 
                 </Card>
@@ -68,8 +65,9 @@ function RenderMap({route}) {
 
             return(
                     <div key={comment.id}>
-                  
-                        <li><p>{comment.comment}</p>
+                   
+                        
+                        <li className="comment_list__item"><p>{comment.comment}</p>
                             <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year:'numeric', month:'short',  day:'2-digit'}).format(new Date(Date.parse (comment.date)))}</p>
                         </li>
                     
@@ -83,9 +81,9 @@ function RenderMap({route}) {
         }
         return (
 
-            <div>
+            <div className="comments_list">
             
-                <h4>Comments</h4>
+                <h3>Комметарии</h3>
                 <ul className="list-unstyled">
                   
                         { com }
@@ -102,7 +100,7 @@ function RenderMap({route}) {
         if (props.route != null){
             
             return (
-                <div className="col-9 col-md main_block">
+                <div className="col-12 col-md-9 main_block">
                     <div className="row">
                     <Breadcrumb>
                         

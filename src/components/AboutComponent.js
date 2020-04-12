@@ -22,11 +22,11 @@ function About(props) {
                 </div>                
             </div>
             <div className="row row-content">
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-12 col-lg-6 ">
                     <p>Проект только развивается. Наша цель - помочь роллерам комфортно передвигаться по городу и вовремя узнавать о перекопанных улицах и плохих дорогах, которые могут не только уменьшить удовольствие от поездки, но и навредить здоровью.</p>
                     
                 </div>
-                <div className="col-12 col-md-5">
+                <div className="col-12 col-md-12 col-lg-5">
                     <Card>
                         <CardHeader className="bg-primary text-white">Факты</CardHeader>
                         <CardBody>

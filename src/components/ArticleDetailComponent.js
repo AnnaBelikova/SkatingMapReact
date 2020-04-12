@@ -32,7 +32,7 @@ import { Link } from 'react-router-dom';
             return(
                     <div key={comment.id}>
                   
-                        <li><p>{comment.comment}</p>
+                        <li className="comment_list__item"><p>{comment.comment}</p>
                             <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year:'numeric', month:'short',  day:'2-digit'}).format(new Date(Date.parse (comment.date)))}</p>
                         </li>
                     
@@ -46,7 +46,7 @@ import { Link } from 'react-router-dom';
         }
         return (
 
-            <div>
+            <div className="comments_list">
             
                 <h4>Комментарии</h4>
                 <ul className="list-unstyled">
@@ -64,7 +64,7 @@ import { Link } from 'react-router-dom';
       
         if (props.article != null){
             return (
-                <div className="col-9 col-md main_block">
+                <div className="col-12 col-md-9 main_block">
                     <div className="row">
                     <Breadcrumb>
                         

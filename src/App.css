@@ -12,7 +12,7 @@ body{
 .row-content {
     margin:0px auto;
     padding: 50px 0px 50px 0px;
-    border-bottom: 1px ridge;
+    
   
 }
 
@@ -20,6 +20,33 @@ body{
     background-color: skyblue;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
+}
+
+.btn__social{
+    display:inline-block;
+    border-radius: 50% !important;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    background: #fff;
+    width:40px;
+    height:40px;
+    margin:5px;
+    position: relative; 
+    transform: scale(1);
+    transition: all .5s ease-in-out;
+}
+.btn__social>i{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+
+.btn__social:hover{
+    text-decoration: none;
+    transform: translateY(-5px) scale(1.2);
+    z-index:100;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+    transition: all .5s ease-in-out;
 }
 
 /* Logo*/
@@ -121,11 +148,22 @@ address{
     margin-right:5px;
 }
 
-.newslist{
+.tab-content{
     border-radius: 5px;
     border: 1px solid lightblue;
     padding:10px;
 }
+.nav-tabs{
+    border-bottom: 0px!important;
+    margin-left: 5px;
+}
+.nav-tabs>.nav-item>.active{
+    border-color:lightblue lightblue #fff !important;
+}
+.nav-tabs .nav-item .show .nav-link, .nav-tabs .nav-link .active :hover{
+    border-color: ligntblue lightblue #fff !important;
+}
+
 .newslist>h5{
     margin-bottom:20px;
 }
@@ -216,13 +254,14 @@ dt{
 .card-body>dl{
     margin-bottom: 0;
 }
-.routes_category{
+.route_card{
+    margin-top:20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.routes_info{
     margin-bottom:20px;
 }
-.routes_direction{
-    font-style: italic;
-    margin-top: 10px;
-}
+
 .news_list,.routes_list{
     width:90%;
     margin:auto;
@@ -230,12 +269,30 @@ dt{
 .nav-item{
     cursor:pointer;
 }
+
+.comments_list{
+    padding: 10px;
+    border-radius: 8px;
+    border:1px solid lightblue;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    background-color: #fff;
+}
+.comment_list__item{
+    padding:10px;
+    border-radius: 8px;
+    border:1px solid lightblue;
+    background-color: floralwhite;
+    margin-bottom: 10px;
+    
+}
+
+
 .leaflet-container {
     height: 600px;
     width: 85%;
     border-radius: 8px;
     border:1px solid lightblue;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
     padding:8px;
     margin-right:1px;
 }
@@ -258,7 +315,10 @@ dt{
     padding: 0 5px;
     cursor:pointer;
     position:relative;
-    border-radius:0 8px 0 0;
+    border-radius:0 8px 8px 0;
+    transform: scale(1);
+    z-index:0;
+    transition:all .5s ease-in-out;
 }
 
 .all{
@@ -268,7 +328,7 @@ dt{
     background: linear-gradient(to bottom, green, white);
 }
 .middle{
-    background: linear-gradient(to bottom, yellow, white);
+    background: linear-gradient(to bottom, orange, white);
 }
 .bad{
     background: linear-gradient(to bottom, red, white);
@@ -276,10 +336,12 @@ dt{
 .map_tab:hover
 {
     box-shadow: 0 5px 2px rgba(0,0,0,0.3);
-    z-index:100;
+    z-index:101;
+    transition:all .5s ease-in-out;
 }
 .map_tab:active{
     box-shadow: 0 7px 4px rgba(0,0,0,0.8);
+    transition:all .5s ease-in-out;
 }
 
 .current
@@ -287,11 +349,92 @@ dt{
     box-shadow: 0 5px 2px rgba(0,0,0,0.3);
     z-index:100;
     transform: scale(1.1);
+    transition:all .5s ease-in-out;
 }
 
-.visible{
-    display:block;
+
+.leafmap_route{
+    width:100%;
 }
-.hidden{
-    display:none;
+
+
+.pulse_btn {
+    width: 235px;
+  border: none;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1.68px;
+  cursor: pointer;
+  transition: all .2s;
+    animation: shadow 1.9s infinite linear;
+}
+
+.pulse_btn:hover {
+  transition: all .2s;
+  animation: none;
+  background-color: skyblue;
+  color: #fff;
+}
+
+@keyframes shadow {
+  0% {
+    box-shadow: 0 0 10px 0px skyblue, 0 0 10px 0px skyblue; 
+  }
+  100% {
+    box-shadow: 0 0 18px 6px rgba(255, 48, 26, 0), 0 0 4px 20px rgba(255, 48, 26, 0); 
+  } 
+}
+
+
+@media screen and (max-width:1200px) {
+    .jumbotron{
+        height: auto;
+    }
+    .newslist{
+        display:none;
+    }
+    .img-fluid{
+        display:none;
+    }
+    .mr-auto{
+        margin-right: 0 !important
+    }
+    .map_tab{
+        min-width:90px;
+    }
+}
+@media screen and (max-width:750px) {
+    .jumbotron{
+        display:none;
+    }
+    .news__items{
+        background: #fff;
+        border: 0;
+    }
+    .navbar{
+        margin-bottom:20px;
+    } 
+    .leaflet-container{
+        width:90%;
+        margin:auto;
+    }
+    .map_block{
+        flex-direction: column-reverse;
+    }
+    .map_tabs{
+        display:flex;
+        width:80%;
+        margin:auto;
+        
+    }
+    .map_tab{
+        border-radius: 8px 8px 0 0;
+        min-width:70px;
+    }
+    .routes_category{
+        display:block;
+    }
 }

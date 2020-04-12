@@ -33,24 +33,14 @@ class Home extends Component {
  
   
     render(){
- 
-        
         return(
-        <div className="col-9 col-md main_block">
+        <div className="col-12 col-md-12 col-lg-9 main_block">
                 <div className="row " className="routeBtn">
-                    <Button variant="outlined" size="large" color="primary" onClick = {this.toggleModal}>Построить маршрут</Button>
+                    <Button className="pulse_btn" variant="outlined" size="large" color="primary" onClick = {this.toggleModal}>Построить маршрут</Button>
                 </div>
                 <div className="row align-items-start">
-                    
-                        <MapStreets streets={this.state.streets} />
-
-                        
+                    <MapStreets streets={this.state.streets} />  
                 </div>
-            
-            
-            
-            
-                
                  <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal} >
                     <ModalHeader toggle = {this.toggleModal} > 
                         Построить маршрут  

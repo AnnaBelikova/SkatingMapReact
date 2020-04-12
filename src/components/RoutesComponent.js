@@ -7,7 +7,7 @@ function RenderRouteItem({route, onClick}){
     return(
         <div className="news__item row">
         
-                <div className="col-12 col-md-3"><img src={route.image} alt={route.name} /></div>
+                <div className="col-12 col-md-3"><img width="100%" src={route.image} alt={route.name} /></div>
                 <div className="news_item__info col-12 col-md-9">
                     <div className="news_item__title">{route.name}</div>
         
@@ -71,7 +71,7 @@ class Routes extends Component {
                 <div className='row news__items'>
                     {routes}
                 </div>
- <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal} >
+                <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal} >
                     <ModalHeader toggle = {this.toggleModal} > 
                         Добавь свой маршрут
                     < /ModalHeader> 

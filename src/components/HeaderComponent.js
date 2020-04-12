@@ -51,7 +51,7 @@ class Header extends Component {
                     <Collapse isOpen = {this.state.isNavOpen}navbar >
                         <Nav navbar >
                             <NavItem >
-                                <NavLink className = "nav-link" to = '/aboutus' > < span className = "fa fa-info fa-lg" ></span> О проекте</NavLink >
+                                <NavLink className = "nav-link" to = '/aboutus' > < span className = "fa fa-info fa-lg" ></span> О&nbsp;проекте</NavLink >
                             </NavItem> 
                             <NavItem >
                                 <NavLink className = "nav-link" to = '/news' > < span className = "fa fa-newspaper-o fa-lg" > < /span> Новости</NavLink >
@@ -76,73 +76,54 @@ class Header extends Component {
                 <img src="../assets/images/sum4_250.jpg" className="img-fluid" alt=""/>
                 <div className = "container" >
                     <div className = "row row-header" >
-                        <div className = "jumbotron__info col-12 col-lg-6" >
-                            <h1 > Интерактивная карта для роллеров Санкт-Петербурга </h1> 
+                        <div className = "jumbotron__info col-12 col-md-10 col-lg-8" >
+                            <h1> Интерактивная карта для роллеров Санкт-Петербурга </h1> 
                             <p> Проект для тех, кто любит передвигаться по городу на 8 колесах. Интерактивная карта позволит избежать столкновений с перекопаными улицами, попробовать интересные маршруты и даже поделиться своими.</p> 
                         </div> 
                     </div> 
                 </div> 
             </Jumbotron> 
                 
-            <
-            Modal isOpen = {
-                this.state.isModalOpen
-            }
-            toggle = {
-                this.toggleModal
-            } >
-            <
-            ModalHeader toggle = {
-                this.toggleModal
-            } > Login < /ModalHeader> <
-            ModalBody >
-            <
-            Form onSubmit = {
-                this.handleLogin
-            } >
-            <
-            FormGroup >
-            <
-            Label htmlFor = "username" > Username < /Label> <
-            Input type = "text"
-            id = "username"
-            name = "username"
-            innerRef = {
-                (input) => this.username = input
-            }
-            /> <
-            /FormGroup> <
-            FormGroup >
-            <
-            Label htmlFor = "password" > Password < /Label> <
-            Input type = "password"
-            id = "password"
-            name = "password"
-            innerRef = {
-                (input) => this.password = input
-            }
-            /> <
-            /FormGroup> <
-            FormGroup check >
-            <
-            Label check >
-            <
-            Input type = "checkbox"
-            name = "remember"
-            innerRef = {
-                (input) => this.remember = input
-            }
-            />
-            Remember me <
-            /Label> <
-            /FormGroup> <
-            Button type = "submit"
-            value = "submit"
-            color = "primary" > Login < /Button> <
-            /Form> <
-            /ModalBody> <
-            /Modal> <
-            /div>
+            <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal}>
+                <ModalHeader toggle = { this.toggleModal}> Login </ModalHeader> 
+                <ModalBody >
+                    <Form onSubmit = {this.handleLogin} >
+                        <FormGroup >
+                            <Label htmlFor = "username" > Username < /Label> 
+                            <Input type = "text"
+                                id = "username"
+                                name = "username"
+                                innerRef = {(input) => this.username = input}
+                            /> 
+                        </FormGroup> 
+                        <FormGroup >
+                            <Label htmlFor = "password" > Password < /Label> <
+                            Input type = "password"
+                            id = "password"
+                            name = "password"
+                            innerRef = {
+                                (input) => this.password = input
+                            }
+                            /> 
+                        </FormGroup> 
+                        <FormGroup check >
+                            <Label check >
+                                <Input type = "checkbox"
+                                name = "remember"
+                                innerRef = {
+                                    (input) => this.remember = input
+                                }/>
+                                Remember me 
+                            </Label> 
+                        </FormGroup> 
+                        <Button type = "submit"
+                            value = "submit"
+                            color = "primary" > Login 
+                        </Button> 
+                    </Form> 
+                </ModalBody> 
+            </Modal> 
+        </div>
         );
     }
 }
