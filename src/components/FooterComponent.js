@@ -21,10 +21,10 @@ function Footer(props) {
                     <address>
 		              Murino<br />
 		              Shuvalova 9, 9<br />
-		              <i className="fa fa-phone fa-lg"></i>: +852 1234 5678<br />
-		              <i className="fa fa-fax fa-lg"></i>: +852 8765 4321<br />
-		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:skate_map@skating.net">
-                         skate_map@skating.net</a>
+		              <i className="fa fa-phone fa-lg"></i> : +852 1234 5678<br />
+		              <i className="fa fa-fax fa-lg"></i> : +852 8765 4321<br />
+		              <i className="fa fa-envelope fa-lg"></i> : <a href="mailto:bel4onok_spb@mail.r">
+                          bel4onok_spb@mail.r</a>
                     </address>
                 </div>
                 <div className="col-12 col-sm-4 align-self-center">
@@ -33,8 +33,8 @@ function Footer(props) {
                         <a className=" btn__social " href="/"><i className="fa fa-facebook"> </i>&nbsp;</a>
                         <a className=" btn__social " href="/"><i className="fa fa-linkedin"> </i>&nbsp;</a>
                         <a className=" btn__social " href="/"><i className="fa fa-twitter"> </i>&nbsp;</a>
-                        <a className=" btn__social " href=""><i className="fa fa-youtube"> </i>&nbsp;</a>
-                        <a className=" btn__social" href="mailto:skate_map@skating.net"><i className="fa fa-envelope-o"> </i>&nbsp;</a>
+                        <a className=" btn__social " href="/"><i className="fa fa-youtube"> </i>&nbsp;</a>
+                        <a className=" btn__social" href="mailto:bel4onok_spb@mail.ru"><i className="fa fa-envelope-o"> </i>&nbsp;</a>
                     </div>
                 </div>
             </div>

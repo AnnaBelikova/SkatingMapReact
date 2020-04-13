@@ -1,9 +1,8 @@
 import React from 'react';
-import { Card, CardText, CardBody,
-    CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import { Map as LeafletMap, TileLayer, Polyline, Marker, Popup } from 'react-leaflet';
+import { Map as LeafletMap, TileLayer, Polyline } from 'react-leaflet';
 
 
 

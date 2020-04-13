@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label} from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label} from 'reactstrap';
 import MapStreets from './MapStreetsComponent';
 import { STREETS } from '../shared/streets.js';
 
@@ -35,8 +35,8 @@ class Home extends Component {
     render(){
         return(
         <div className="col-12 col-md-12 col-lg-9 main_block">
-                <div className="row " className="routeBtn">
-                    <Button className="pulse_btn" variant="outlined" size="large" color="primary" onClick = {this.toggleModal}>Построить маршрут</Button>
+                <div className="row">
+                    <Button className="pulse_btn routeBtn" variant="outlined" size="large" color="primary" onClick = {this.toggleModal}>Построить маршрут</Button>
                 </div>
                 <div className="row align-items-start">
                     <MapStreets streets={this.state.streets} />  

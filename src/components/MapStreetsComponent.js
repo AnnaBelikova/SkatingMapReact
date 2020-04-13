@@ -1,7 +1,5 @@
-import React, { useState, Component } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Row } from 'reactstrap';
-import classnames from 'classnames';
-import { Map as LeafletMap, TileLayer, Polyline, Marker, Popup } from 'react-leaflet';
+import React, { Component } from 'react';
+import { Map as LeafletMap, TileLayer, Polyline, Popup } from 'react-leaflet';
 import { STREETS } from '../shared/streets.js';
 
 /*function RenderPolylineItem({street}, props){
@@ -58,10 +56,10 @@ render(){
              
         </LeafletMap>
                         <div className="map_tabs">
-                            <div className="all map_tab current" onClick={() => this.setState({activeBtn: 'all', showGood: true, showBad:true, showMiddle:true})} className={'all map_tab '+ (this.state.activeBtn === 'all' ? 'current' : '')}>Все</div>
-                            <div className="good map_tab"  onClick={() => this.setState({activeBtn: 'good', showGood: true, showBad:false, showMiddle:false })} className={"good map_tab " +(this.state.activeBtn === 'good' ? 'current' : '')}>Шоколад!</div>
-                            <div className="middle map_tab" onClick={() => this.setState({activeBtn: 'middle', showGood: false, showBad:false, showMiddle:true})} className={"middle map_tab "+(this.state.activeBtn === 'middle' ? 'current' : '')}>Средне</div>
-                            <div className="bad map_tab" onClick={() => this.setState({activeBtn: 'bad', showGood: false, showBad:true, showMiddle:false})} className={"bad map_tab " + (this.state.activeBtn === 'bad' ? 'current' : '')}>Проезда нет</div>
+                            <div  onClick={() => this.setState({activeBtn: 'all', showGood: true, showBad:true, showMiddle:true})} className={'all map_tab '+ (this.state.activeBtn === 'all' ? 'current' : '')}>Все</div>
+                            <div  onClick={() => this.setState({activeBtn: 'good', showGood: true, showBad:false, showMiddle:false })} className={"good map_tab " +(this.state.activeBtn === 'good' ? 'current' : '')}>Шоколад!</div>
+                            <div  onClick={() => this.setState({activeBtn: 'middle', showGood: false, showBad:false, showMiddle:true})} className={"middle map_tab "+(this.state.activeBtn === 'middle' ? 'current' : '')}>Средне</div>
+                            <div  onClick={() => this.setState({activeBtn: 'bad', showGood: false, showBad:true, showMiddle:false})} className={"bad map_tab " + (this.state.activeBtn === 'bad' ? 'current' : '')}>Проезда нет</div>
                         </div>            
         </div>
     )}

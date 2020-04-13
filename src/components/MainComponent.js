@@ -27,12 +27,6 @@ class Main extends Component {
 
 
   render() {
-      const HomePage = () => {
-      return(
-            <Home 
-              article={this.state.articles.filter((article) => article.featured)[0]}/>
-      );
-    }
           
     const ArticleWithId = ({match}) => {
       return(
