@@ -42,7 +42,7 @@ function RenderNewsItem({article, onClick}){
         this.toggleModal();
         alert("Заголовок: " + this.news_title.value + " Текст: " + this.news_text.value +
             " Поделись!" );
-        event.preventDefault();
+        
     }
         
     render(){
@@ -75,7 +75,7 @@ function RenderNewsItem({article, onClick}){
                         Добавь свою новость
                     < /ModalHeader> 
                     <ModalBody>
-                        <Form onSubmit = {this.handleNews} >
+                        <Form  action="display.php" method="post" onSubmit = {this.handleNews} >
                             <FormGroup >
                                 <Label htmlFor = "news_title" > Заголовок < /Label> 
                                 <Input type = "text" id = "news_title" name = "news_title" innerRef = {(input) => this.news_title = input}/> 

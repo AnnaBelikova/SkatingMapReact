@@ -7,11 +7,14 @@ class Header extends Component {
         super(props);
         this.state = {
             isNavOpen: false,
-            isModalOpen: false
+            isModalLoginOpen: false,
+            isModalRegOpen:false
         };
-        this.toggleModal = this.toggleModal.bind(this);
+        this.toggleModalLogin = this.toggleModalLogin.bind(this);
+        this.toggleModalReg = this.toggleModalReg.bind(this);
         this.toggleNav = this.toggleNav.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.handleReg = this.handleReg.bind(this);
     }
     
     toggleNav() {
@@ -20,17 +23,29 @@ class Header extends Component {
         });
     }
 
-    toggleModal() {
+    toggleModalLogin() {
         this.setState({
-            isModalOpen: !this.state.isModalOpen
+            isModalLoginOpen: !this.state.isModalLoginOpen
+        });
+    }
+    toggleModalReg() {
+        this.setState({
+            isModalRegOpen: !this.state.isModalRegOpen
         });
     }
 
     handleLogin(event) {
-        this.toggleModal();
+        this.toggleModalLogin();
         alert("Username: " + this.username.value + " Password: " + this.password.value +
             " Remember: " + this.remember.checked);
-        event.preventDefault();
+        //event.preventDefault();
+    }
+    
+    handleReg(event) {
+        this.toggleModalReg();
+        alert("Username: " + this.username.value + " Password: " + this.password.value + this.password.value 
+           );
+        //event.preventDefault();
     }
     
     render() {
@@ -64,7 +79,7 @@ class Header extends Component {
                             </NavItem> 
                             <Nav className = "ml-auto"navbar >
                                 <NavItem >
-                                    <Button variant="outlined" color="primary"  onClick = {this.toggleModal } > < span className = "fa fa-sign-in fa-lg" > < /span> Login</Button >
+                                    <Button variant="outlined" color="primary"  onClick = {this.toggleModalLogin } > < span className = "fa fa-sign-in fa-lg" > < /span> Войти</Button >
                                 </NavItem> 
                             </Nav> 
                         </Nav> 
@@ -84,12 +99,12 @@ class Header extends Component {
                 </div> 
             </Jumbotron> 
                 
-            <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal}>
-                <ModalHeader toggle = { this.toggleModal}> Login </ModalHeader> 
+            <Modal isOpen = {this.state.isModalLoginOpen} toggle = {this.toggleModalLogin}>
+                <ModalHeader toggle = {this.toggleModalLogin}> Войти </ModalHeader> 
                 <ModalBody >
-                    <Form onSubmit = {this.handleLogin} >
+                    <Form action='auth.php' method='post' onSubmit = {this.handleLogin} >
                         <FormGroup >
-                            <Label htmlFor = "username" > Username < /Label> 
+                            <Label htmlFor = "username" > Логин < /Label> 
                             <Input type = "text"
                                 id = "username"
                                 name = "username"
@@ -97,7 +112,7 @@ class Header extends Component {
                             /> 
                         </FormGroup> 
                         <FormGroup >
-                            <Label htmlFor = "password" > Password < /Label> <
+                            <Label htmlFor = "password" > Пароль < /Label> <
                             Input type = "password"
                             id = "password"
                             name = "password"
@@ -116,13 +131,68 @@ class Header extends Component {
                                 Remember me 
                             </Label> 
                         </FormGroup> 
-                        <Button type = "submit"
+                        <Button className='mr-5' type = "submit"
                             value = "submit"
-                            color = "primary" > Login 
+                            color = "primary" > Войти 
+                        </Button> 
+                        <Button  onClick = {() => this.setState({isModalRegOpen: true, isModalLoginOpen: false})}
+                            color = "secondary" > Нужна регистрация 
                         </Button> 
                     </Form> 
                 </ModalBody> 
             </Modal> 
+
+
+
+            <Modal isOpen = {this.state.isModalRegOpen} toggle = {this.toggleModalReg}>
+                <ModalHeader toggle ={this.toggleModalReg}> Регистрация </ModalHeader> 
+                <ModalBody >
+                    <Form action='reg.php' method='post' onSubmit = {this.handleReg} >
+                        <FormGroup >
+                            <Label htmlFor = "username" > Логин < /Label> 
+                            <Input type = "text"
+                                id = "username"
+                                name = "username"
+                                innerRef = {(input) => this.username = input}
+                            /> 
+                        </FormGroup> 
+                        <FormGroup >
+                            <Label htmlFor = "email" > Email < /Label> 
+                            <Input type = "email"
+                                id = "email"
+                                name = "email"
+                                innerRef = {(input) => this.email = input}
+                            /> 
+                        </FormGroup> 
+                        <FormGroup >
+                            <Label htmlFor = "password" > Пароль < /Label> <
+                            Input type = "password"
+                            id = "password"
+                            name = "password"
+                            innerRef = {
+                                (input) => this.password = input
+                            }
+                            /> 
+                        </FormGroup>
+                        <FormGroup >
+                            <Label htmlFor = "repeatPassword" > Повторите пароль < /Label> <
+                            Input type = "repeatPassword"
+                            id = "repeatPassword"
+                            name = "repeatPassword"
+                            innerRef = {
+                                (input) => this.repeatPassword = input
+                            }
+                            /> 
+                        </FormGroup>
+                        
+                        <Button type = "submit"
+                            value = "submit"
+                            color = "primary" > Зарегистрироваться 
+                        </Button> 
+                        
+                    </Form> 
+                </ModalBody> 
+            </Modal>
         </div>
         );
     }
