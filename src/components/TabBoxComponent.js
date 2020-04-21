@@ -7,7 +7,7 @@ function RenderNewsListItem({article, onClick}){
     return(
             <Link className="newslist_item__title" to={`/news/${article.id}`} >
              
-                    <span>{article.name}</span>
+                    <span>{article.title}</span>
                     <i className="fa fa-hand-o-right" aria-hidden="true"></i>
              
             </Link>
@@ -35,7 +35,7 @@ const [activeTab, setActiveTab] = useState('1');
 
         const newsList = props.articles.map((article) => {
             return (
-                <div className="newslist__item m-1"  key={article.id}>
+                <div className="newslist__item m-1"  key={article.ind}>
                     <RenderNewsListItem article={article} onClick={props.onClick} />
                 </div>
             );

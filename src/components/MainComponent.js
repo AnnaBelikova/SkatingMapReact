@@ -14,6 +14,7 @@ import TabBox from './TabBoxComponent';
 import Routes from './RoutesComponent';
 import Admin from './AdminComponent';
 import NotFound from './NotFoundComponent';
+import axios from "axios";
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -22,18 +23,29 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        articles: NEWS,
+        articles: [],
         comments: COMMENTS,
         routes: ROUTES,
     };
   }
 
+    
+   componentWillMount() {
+    axios
+      .get("http://cw44189.tmweb.ru/news.php")
+      .then(({ data }) => {
+        this.setState({
+          articles: data
+        });
+      });
+  } 
+    
 
   render() {
           
     const ArticleWithId = ({match}) => {
       return(
-            <ArticleDetail article={this.state.articles.filter((article) => article.id === parseInt(match.params.articleId,10))[0]} 
+            <ArticleDetail article={this.state.articles.filter((article) => article.id == parseInt(match.params.articleId,10))[0]} 
             comments={this.state.comments.filter((comment) => comment.articleId === parseInt(match.params.articleId,10))} />
       );
     };

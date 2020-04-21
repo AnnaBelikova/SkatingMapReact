@@ -8,9 +8,10 @@ function RenderNewsItem({article, onClick}){
         
                 <div className="col-12 col-md-3"><img width="100%" src={article.image} alt={article.name} /></div>
                 <div className="news_item__info col-12 col-md-9">
-                    <div className="news_item__title">{article.name}</div>
+                    <div className="news_item__title">{article.title}</div>
+                    
         
-                    <div className="news_item__text"> {article.description} </div>
+                    <div className="news_item__text"> {article.text} </div>
         
                     <Link to={`/news/${article.id}`} >
                         <Button color="primary" className='news_item__detailbtn'>Подробнее</Button>

@@ -8,10 +8,11 @@ import { Link } from 'react-router-dom';
             return(
                
                 <Card>
-                    <CardImg width='100%' object="true" src={article.image} alt={article.name}/>
+                    <CardImg width='100%' object="true" src={article.image} alt={article.title}/>
                     <CardBody>
-                        <CardTitle>{article.name}</CardTitle>
-                        <CardText>{article.description}</CardText>
+                        <CardTitle>{article.title}</CardTitle>
+                        <CardText><em>{article.author}</em></CardText>
+                        <CardText>{article.text}</CardText>
                     </CardBody>
                 
                 </Card>
@@ -72,12 +73,12 @@ import { Link } from 'react-router-dom';
                         <Link to="/news">Новости</Link>
                         </BreadcrumbItem>
                         <BreadcrumbItem active>
-                        {props.article.name}
+                        {props.article.title}
                         </BreadcrumbItem>
                     
                     </Breadcrumb>
                     <div className="col-12">
-                        <h3>{props.article.name}</h3>
+                        <h3>{props.article.title}</h3>
                         <hr />
                     </div>
                 </div>
@@ -101,7 +102,7 @@ import { Link } from 'react-router-dom';
             )
         }else{
             return (
-                <div></div>
+                <div> Нифига не пришло, блин</div>
             )
         }
     }
