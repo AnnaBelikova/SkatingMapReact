@@ -12,6 +12,9 @@ import Contact from './ContactComponent';
 import About from './AboutComponent';
 import TabBox from './TabBoxComponent';
 import Routes from './RoutesComponent';
+import Admin from './AdminComponent';
+import NotFound from './NotFoundComponent';
+
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 class Main extends Component {
@@ -55,9 +58,12 @@ class Main extends Component {
                             <Route exact path='/routes' component={() => <Routes routes={this.state.routes} />} />
                             <Route path="/news/:articleId" component={ArticleWithId} />
                             <Route path="/routes/:routeId" component={RouteWithId} />
-                          <Redirect to="/home" />
+                            <Route exact path='/admin' component={Admin} />} />
+                            <Redirect from='' to="/home" />
+                            <Route exact path='*' component={NotFound} />} />
+                          
                     </Switch>
-                    <div className="col-3">
+                    <div className="col-3 mb-5">
                         <div className="newslist">
                             <TabBox routes={this.state.routes} articles={this.state.articles} ></TabBox>
                         </div>
