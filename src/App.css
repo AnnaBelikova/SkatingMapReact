@@ -211,6 +211,9 @@ address{
     margin-right: 0px;
     margin-bottom: 40px;
 }
+.hidden{
+    display:none !important;
+}
 
 .title__add{
     justify-content: space-between;

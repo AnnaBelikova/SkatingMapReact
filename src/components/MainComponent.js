@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import News from './NewsComponent';
 import ArticleDetail from './ArticleDetailComponent';
 import RouteDetail from './RouteDetailComponent';
-import { NEWS } from '../shared/news';
-import { COMMENTS } from '../shared/comments';
-import { ROUTES } from '../shared/routes';
+//import { NEWS } from '../shared/news';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
@@ -16,7 +14,18 @@ import Admin from './AdminComponent';
 import NotFound from './NotFoundComponent';
 import axios from "axios";
 
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+
+
+const mapStateToProps= state => {
+    return {
+        comments: state.comments,
+        routes: state.routes
+    }
+}
+
 
 class Main extends Component {
 
@@ -24,8 +33,6 @@ class Main extends Component {
     super(props);
     this.state = {
         articles: [],
-        comments: COMMENTS,
-        routes: ROUTES,
     };
   }
 
@@ -40,20 +47,20 @@ class Main extends Component {
       });
   } 
     
-
+   
   render() {
           
     const ArticleWithId = ({match}) => {
       return(
-            <ArticleDetail article={this.state.articles.filter((article) => article.id == parseInt(match.params.articleId,10))[0]} 
-            comments={this.state.comments.filter((comment) => comment.articleId === parseInt(match.params.articleId,10))} />
+            <ArticleDetail article={this.state.articles.filter((article) => article.id === parseInt(match.params.articleId,10))[0]} 
+            comments={this.props.comments.filter((comment) => comment.articleId === parseInt(match.params.articleId,10))} />
       );
     };
 
  const RouteWithId = ({match}) => {
       return(
-            <RouteDetail route={this.state.routes.filter((route) => route.id === parseInt(match.params.routeId,10))[0]} 
-            comments={this.state.comments.filter((comment) => comment.routeId === parseInt(match.params.routeId,10))} />
+            <RouteDetail route={this.props.routes.filter((route) => route.id === parseInt(match.params.routeId,10))[0]} 
+            comments={this.props.comments.filter((comment) => comment.routeId === parseInt(match.params.routeId,10))} />
       );
 };
     return (
@@ -67,7 +74,7 @@ class Main extends Component {
                           <Route exact path='/news' component={() => <News articles={this.state.articles} />} />
                             <Route exact path='/contactus' component={Contact} />} />
                             <Route exact path='/aboutus' component={About} />} />
-                            <Route exact path='/routes' component={() => <Routes routes={this.state.routes} />} />
+                            <Route exact path='/routes' component={() => <Routes routes={this.props.routes} />} />
                             <Route path="/news/:articleId" component={ArticleWithId} />
                             <Route path="/routes/:routeId" component={RouteWithId} />
                             <Route exact path='/admin' component={Admin} />} />
@@ -77,7 +84,7 @@ class Main extends Component {
                     </Switch>
                     <div className="col-3 mb-5">
                         <div className="newslist">
-                            <TabBox routes={this.state.routes} articles={this.state.articles} ></TabBox>
+                            <TabBox routes={this.props.routes} articles={this.state.articles} ></TabBox>
                         </div>
                     </div>
                 </div>
@@ -88,4 +95,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+//import axios from "axios";
 
 class Header extends Component {
     constructor(props) {
@@ -8,14 +9,35 @@ class Header extends Component {
         this.state = {
             isNavOpen: false,
             isModalLoginOpen: false,
-            isModalRegOpen:false
+            isModalRegOpen:false,
+            user:{
+                user_login:"Guest",
+                access:"",
+                email:""
+            }
         };
         this.toggleModalLogin = this.toggleModalLogin.bind(this);
         this.toggleModalReg = this.toggleModalReg.bind(this);
         this.toggleNav = this.toggleNav.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleReg = this.handleReg.bind(this);
+//        this.updatePage = this.updatePage.bind(this);
     }
+    
+//   updatePage() {
+//       
+//        axios
+//            .get("http://localhost:3000/auth.php")
+//              .then(({ data }) => {
+//            console.log(data);
+//                this.setState({
+//                user:data
+//                });
+//
+//        });     
+//       
+//   }
+//    
     
     toggleNav() {
         this.setState({
@@ -38,14 +60,14 @@ class Header extends Component {
         this.toggleModalLogin();
         alert("Username: " + this.username.value + " Password: " + this.password.value +
             " Remember: " + this.remember.checked);
-        //event.preventDefault();
+        //this.updatePage();
     }
     
     handleReg(event) {
         this.toggleModalReg();
         alert("Username: " + this.username.value + " Password: " + this.password.value + this.password.value 
            );
-        //event.preventDefault();
+        event.preventDefault();
     }
     
     render() {
@@ -79,7 +101,12 @@ class Header extends Component {
                             </NavItem> 
                             <Nav className = "ml-auto"navbar >
                                 <NavItem >
-                                    <Button variant="outlined" color="primary"  onClick = {this.toggleModalLogin } > < span className = "fa fa-sign-in fa-lg" > < /span> Войти</Button >
+                                    <Button className={(this.state.user.user_login === 'Guest' ? '' : 'hidden')} variant="outlined" color="primary"  onClick = {this.toggleModalLogin } > < span className = "fa fa-sign-in fa-lg" > < /span> Войти</Button >
+                                    <NavLink className ={"nav-link"+(this.state.user.user_login === 'Guest' ? 'hidden' : '')} to = '/admin' > < span className = "fa fa-user fa-lg" > < /span> 
+                                           <span > {this.state.user.user_login} </span>
+                
+                                    </NavLink >
+            
                                 </NavItem> 
                             </Nav> 
                         </Nav> 
