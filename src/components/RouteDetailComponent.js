@@ -1,14 +1,94 @@
-import React from 'react';
-import { Card, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import React, {Component} from 'react';
+import { Card, CardBody, Breadcrumb, BreadcrumbItem, Row, Label,Col,Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Control, LocalForm, Errors } from 'react-redux-form';
 
 import { Map as LeafletMap, TileLayer, Polyline } from 'react-leaflet';
+import { Loading } from './LoadingComponent';
+
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => (val) && (val.length >= len);
+
+
+
+class CommentForm extends Component {
+
+    constructor(props){
+        super(props); 
+
+        this.state={
+            
+        };
+
+        this.handleSubmit=this.handleSubmit.bind(this);
+    }
+
+    
+    handleSubmit(values){
+        this.props.addComment(this.props.routeId, values.rating, values.author, values.comment)
+      
+    }
+
+
+    render(){
+        return(
+            <div>
+                    <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                        <Row className="form-group">
+                                <Label htmlFor="rating" md={2}>Rating</Label>
+                                <Col md={{size:12}}>
+                                    <Control.select  model=".rating" name="rating" className="form-control" >
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Control.select>
+                                </Col>
+                            </Row>
+                        <Row className="form-group">
+                                <Label htmlFor="author" md={4}>Your Name</Label>
+                                <Col md={12}>
+                                    <Control.text model=".author" id="author" name="author" 
+                                    placeholder='Your Name' className='form-control'
+                                    validators={{
+                                        required, minLength: minLength(3), maxLength: maxLength(15)
+                                    }}
+                                    />
+                                    <Errors
+                                        className="text-danger" 
+                                        model=".author"
+                                        show="touched"
+                                        messages={{
+                                            required: "Required",
+                                            minLength:"Must be greater than 2 characters",
+                                            maxLength:"Must be 15 characters or less"
+                                        }}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Label htmlFor="comment" md={2}>Comment</Label>
+                                <Col md={12}>
+                                    <Control.textarea model='.comment' id="comment" name="comment" 
+                                    rows='5' className="form-control"/>
+                                </Col>
+                            </Row>
+                        <Button type="submit" value="submit" color="primary">Submit</Button>
+                    </LocalForm >
+            </div>
+        );
+    }
+}
 
 
 
 
 function RenderMap({route}) {
-    
+    let routeLine=[];
+    routeLine=JSON.parse(route.points);
     return(
         <LeafletMap className="leafmap_route"
             center={[59.938946, 30.314982]}
@@ -23,7 +103,7 @@ function RenderMap({route}) {
             easeLinearity={0.35}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"/>
-            <Polyline key={route.id} color={'blue'} positions={route.points}/>
+            <Polyline key={route.id} color={'blue'} positions={routeLine}/>
 
         </LeafletMap>
         
@@ -31,7 +111,7 @@ function RenderMap({route}) {
 }
 
  function RenderRoute({route}) {
-        if (route != null){
+     if (route != null){
             return(
                
                 <Card className="route_card">
@@ -57,7 +137,7 @@ function RenderMap({route}) {
         }
     }
 
-    function RenderComments({comments}) {
+    function RenderComments({comments,addComment,routeId}) {
         let com;
         if(comments != null){
             com=comments.map((comment)=>{
@@ -88,6 +168,7 @@ function RenderMap({route}) {
                         { com }
                    
                 </ul>
+                <CommentForm routeId={routeId} addComment={addComment}/>
                
             </div>
             
@@ -95,8 +176,25 @@ function RenderMap({route}) {
     }
 
     const RouteDetail=(props) => {
-      
-        if (props.route != null){
+      if (props.isLoading) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        else if (props.errMess) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <h4>{props.errMess}</h4>
+                    </div>
+                </div>
+            );
+        }
+        else if (props.route != null){
             
             return (
                 <div className="col-12 col-md-9 main_block">
@@ -130,7 +228,7 @@ function RenderMap({route}) {
 
                             <RenderComments comments={props.comments} 
                           
-                            routeId={props.route.id} />
+                            routeId={props.route.id} addComment={props.addComment}/>
 
                         </div>
 

@@ -18,7 +18,7 @@ function RenderRouteListItem({route, onClick}){
     return(
             <Link className="newslist_item__title" to={`/routes/${route.id}`} >
              
-                    <span>{route.name}</span>
+                    <span>{route.title}</span>
                     <i className="fa fa-hand-o-right" aria-hidden="true"></i>
              
             </Link>

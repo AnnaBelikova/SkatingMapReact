@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 
 import {  Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
 
 function RenderRouteItem({route, onClick}){
     return(
         <div className="news__item row">
         
-                <div className="col-12 col-md-3"><img width="100%" src={route.image} alt={route.name} /></div>
+                <div className="col-12 col-md-3"><img width="100%" src={route.image} alt={route.title} /></div>
                 <div className="news_item__info col-12 col-md-9">
-                    <div className="news_item__title">{route.name}</div>
+                    <div className="news_item__title">{route.title}</div>
         
                     <div className="news_item__text"> {route.description} </div>
+                    
         
                     <Link to={`/routes/${route.id}`} >
                         <Button color="primary" className='news_item__detailbtn'>Подробнее</Button>
@@ -54,6 +56,28 @@ class Routes extends Component {
                 </div>
             );
         });
+if (this.props.routes.isLoading) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        else if (this.props.routes.errMess) {
+            return(
+                <div className="container">
+                    <div className="row"> 
+                        <div className="col-12">
+                            <h4>{this.props.routes.errMess}</h4>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        else
+
         return (
                <div className='col-12 col-md-9 main_block'>
                 <div className='row'>

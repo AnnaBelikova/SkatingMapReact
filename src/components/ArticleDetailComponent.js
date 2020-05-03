@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody,
-    CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
 
  function RenderArticle({article}) {
         if (article != null){
@@ -25,57 +26,38 @@ import { Link } from 'react-router-dom';
         }
     }
 
-    function RenderComments({comments}) {
-        let com;
-        if(comments != null){
-            com=comments.map((comment)=>{
-
-            return(
-                    <div key={comment.id}>
-                  
-                        <li className="comment_list__item"><p>{comment.comment}</p>
-                            <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year:'numeric', month:'short',  day:'2-digit'}).format(new Date(Date.parse (comment.date)))}</p>
-                        </li>
-                    
-                    </div>
-            );
-        });
-        }else{
-            return(
-                <div></div>
-            );
-        }
-        return (
-
-            <div className="comments_list">
-            
-                <h4>Комментарии</h4>
-                <ul className="list-unstyled">
-                  
-                        { com }
-                   
-                </ul>
-               
-            </div>
-            
-            );
-    }
 
     const ArticleDetail=(props) => {
+         if (props.isLoading) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        else if (props.errMess) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <h4>{props.errMess}</h4>
+                    </div>
+                </div>
+            );
+        }
       
-        if (props.article != null){
+        else if (props.article != null){
             return (
                 <div className="col-12 col-md-9 main_block">
                     <div className="row">
-                    <Breadcrumb>
-                        
+                    <Breadcrumb> 
                         <BreadcrumbItem>
                         <Link to="/news">Новости</Link>
                         </BreadcrumbItem>
                         <BreadcrumbItem active>
                         {props.article.title}
                         </BreadcrumbItem>
-                    
                     </Breadcrumb>
                     <div className="col-12">
                         <h3>{props.article.title}</h3>
@@ -83,26 +65,16 @@ import { Link } from 'react-router-dom';
                     </div>
                 </div>
                     <div className = "row">
-    
                         <div className = "col-12 col-md-12 m-1">
-    
                             <RenderArticle article={props.article}/>
     
                         </div>
-                        <div className = "col-12 col-md-12 m-1">
-
-                            <RenderComments comments={props.comments} 
-                          
-                            articleId={props.article.id} />
-
-                        </div>
-
                     </div>
                 </div>   
             )
         }else{
             return (
-                <div> Нифига не пришло, блин</div>
+                <div className="col-12 col-md-9 main_block"> Новость не прошла</div>
             )
         }
     }

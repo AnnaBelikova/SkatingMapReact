@@ -47,7 +47,7 @@ function RenderNewsItem({article, onClick}){
     }
         
     render(){
-        const articles = this.props.articles.map((article) => {
+        const articles = this.props.news.map((article) => {
             return (
                 <div className=' col-12'  key={article.id}>
                     <RenderNewsItem article={article} onClick={this.props.onClick} />

@@ -1,0 +1,1 @@
+export const baseUrl = 'http://cw44189.tmweb.ru/';
