@@ -1,7 +1,20 @@
 export const ADD_COMMENT = 'ADD_COMMENT';
+export const ADD_COMMENTS = 'ADD_COMMENTS';
+export const COMMENTS_LOADING = 'COMMENTS_LOADING';
+export const COMMENTS_FAILED = 'COMMENTS_FAILED'
 export const ROUTES_LOADING = 'ROUTES_LOADING';
 export const ROUTES_FAILED = 'ROUTES_FAILED';
 export const ADD_ROUTES = 'ADD_ROUTES';
 export const NEWS_LOADING = 'NEWS_LOADING';
 export const NEWS_FAILED = 'NEWS_FAILED';
 export const ADD_NEWS = 'ADD_NEWS';
+export const USERS_LOADING = 'USERS_LOADING';
+export const USERS_FAILED = 'USERS_FAILED';
+export const ADD_USERS = 'ADD_USERS';
+
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';

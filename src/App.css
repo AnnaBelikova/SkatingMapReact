@@ -380,6 +380,14 @@ dt{
   color: #fff;
 }
 
+table{
+    border: 5px solid #CCCCCC;
+    width:100%;
+}
+td,th{
+    border: 5px solid #CCCCCC;
+    padding:10px;
+}
 @keyframes shadow {
   0% {
     box-shadow: 0 0 10px 0px skyblue, 0 0 10px 0px skyblue; 

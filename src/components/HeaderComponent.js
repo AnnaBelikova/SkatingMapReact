@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-//import axios from "axios";
 
+const required = (val) => val && val.length;
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -10,34 +10,15 @@ class Header extends Component {
             isNavOpen: false,
             isModalLoginOpen: false,
             isModalRegOpen:false,
-            user:{
-                user_login:"Guest",
-                access:"",
-                email:""
-            }
         };
         this.toggleModalLogin = this.toggleModalLogin.bind(this);
         this.toggleModalReg = this.toggleModalReg.bind(this);
         this.toggleNav = this.toggleNav.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleReg = this.handleReg.bind(this);
-//        this.updatePage = this.updatePage.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     }
-    
-//   updatePage() {
-//       
-//        axios
-//            .get("http://localhost:3000/auth.php")
-//              .then(({ data }) => {
-//            console.log(data);
-//                this.setState({
-//                user:data
-//                });
-//
-//        });     
-//       
-//   }
-//    
+     
     
     toggleNav() {
         this.setState({
@@ -56,11 +37,18 @@ class Header extends Component {
         });
     }
 
+
     handleLogin(event) {
+        event.preventDefault();
         this.toggleModalLogin();
-        alert("Username: " + this.username.value + " Password: " + this.password.value +
-            " Remember: " + this.remember.checked);
-        //this.updatePage();
+        this.props.loginUser({
+             username:this.username.value,
+             password:this.password.value
+       });
+    }
+
+    handleLogout() {
+        this.props.logoutUser();
     }
     
     handleReg(event) {
@@ -100,14 +88,29 @@ class Header extends Component {
                                 <NavLink className = "nav-link" to = '/contactus' > < span className = "fa fa-address-card fa-lg" > < /span> Контакты</NavLink >
                             </NavItem> 
                             <Nav className = "ml-auto"navbar >
-                                <NavItem >
-                                    <Button className={(this.state.user.user_login === 'Guest' ? '' : 'hidden')} variant="outlined" color="primary"  onClick = {this.toggleModalLogin } > < span className = "fa fa-sign-in fa-lg" > < /span> Войти</Button >
-                                    <NavLink className ={"nav-link"+(this.state.user.user_login === 'Guest' ? 'hidden' : '')} to = '/admin' > < span className = "fa fa-user fa-lg" > < /span> 
-                                           <span > {this.state.user.user_login} </span>
-                
-                                    </NavLink >
-            
-                                </NavItem> 
+                                <NavItem>
+                                        { !this.props.auth.isAuthenticated ?
+                                        <Button variant="outlined" color="primary"  onClick = {this.toggleModalLogin } > 
+                                            <span className="fa fa-sign-in fa-lg"></span> Login
+                                            {this.props.auth.isFetching ?
+                                                <span className="fa fa-spinner fa-pulse fa-fw"></span>
+                                                : null
+                                            }
+                                        </Button>
+                                        :
+                                        <div>
+                                        <div className="navbar-text mr-3">{this.props.auth.user.user_login}</div>
+                                        <Button outline onClick={this.handleLogout}>
+                                            <span className="fa fa-sign-out fa-lg"></span> Logout
+                                            {this.props.auth.isFetching ?
+                                                <span className="fa fa-spinner fa-pulse fa-fw"></span>
+                                                : null
+                                            }
+                                        </Button>
+                                        </div>
+                                    }
+
+                                </NavItem>
                             </Nav> 
                         </Nav> 
                     </Collapse> 
@@ -129,7 +132,7 @@ class Header extends Component {
             <Modal isOpen = {this.state.isModalLoginOpen} toggle = {this.toggleModalLogin}>
                 <ModalHeader toggle = {this.toggleModalLogin}> Войти </ModalHeader> 
                 <ModalBody >
-                    <Form action='auth.php' method='post' onSubmit = {this.handleLogin} >
+                    <Form onSubmit = {this.handleLogin} >
                         <FormGroup >
                             <Label htmlFor = "username" > Логин < /Label> 
                             <Input type = "text"

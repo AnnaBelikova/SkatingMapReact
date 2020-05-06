@@ -14,7 +14,7 @@ import NotFound from './NotFoundComponent';
 import axios from "axios";
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addComment,fetchRoutes,fetchNews } from '../redux/ActionCreators';
+import { addComment,fetchRoutes,fetchNews,fetchComments,loginUser,logoutUser,fetchUsers } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 
 
@@ -23,15 +23,21 @@ const mapStateToProps= state => {
     return {
         comments: state.comments,
         routes: state.routes,
-        news:state.news
+        news:state.news,
+        users:state.users,
+        auth: state.auth
     }
 }
 
 const mapDispatchToProps = (dispatch) =>({
-    addComment: (routeId, rating, author, comment) => dispatch(addComment(routeId, rating, author, comment)),
+//    addComment: (routeId, rating, author, comment) => dispatch(addComment(routeId, rating, author, comment)),
     fetchRoutes: () => { dispatch(fetchRoutes())},
+    fetchComments: () => { dispatch(fetchComments())},
+    fetchUsers: () => { dispatch(fetchUsers())},
     resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
-    fetchNews: () => {dispatch(fetchNews())}
+    fetchNews: () => {dispatch(fetchNews())},
+    loginUser: (dataT) => dispatch(loginUser(dataT)),
+    logoutUser: () => dispatch(logoutUser())
 });
 
 class Main extends Component {
@@ -46,6 +52,9 @@ class Main extends Component {
     componentDidMount() {
     this.props.fetchRoutes();
     this.props.fetchNews();
+    this.props.fetchComments();
+    this.props.fetchUsers();
+        
   }
    
   render() {
@@ -63,13 +72,28 @@ class Main extends Component {
             <RouteDetail route={this.props.routes.routes.filter((route) => route.id == parseInt(match.params.routeId,10))[0]}
             isLoading={this.props.routes.isLoading}
             errMess={this.props.routes.errMess}
-            comments={this.props.comments.filter((comment) => comment.routeId === parseInt(match.params.routeId,10))} 
-            addComment={this.props.addComment}/>
+            comments={this.props.comments.comments.filter((comment) => comment.routeId == parseInt(match.params.routeId,10))} 
+            isLoading={this.props.comments.isLoading}
+            errMess={this.props.comments.errMess}/>
       );
 };
+
+
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+      <Route {...rest} render={(props) => (
+        this.props.auth.user!=null && this.props.auth.user.access ==='admin'
+          ? <Component {...props} />
+          : <Redirect to={{
+              pathname: '/home',
+              state: { from: props.location }
+            }} />
+      )} />
+    );
+
     return (
         <div>
-            <Header />
+            <Header auth={this.props.auth} loginUser={this.props.loginUser} logoutUser={this.props.logoutUser} />
             <div className='container'>
                 <div className="row">
                     <Switch>
@@ -82,7 +106,8 @@ class Main extends Component {
                             errMess={this.props.routes.errMess}  />} />
                             <Route path="/news/:articleId" component={ArticleWithId} />
                             <Route path="/routes/:routeId" component={RouteWithId} />
-                            <Route exact path='/admin' component={Admin} />} />
+                            <PrivateRoute exact path="/admin" component={() => <Admin users={this.props.users.users} isLoading={this.props.users.isLoading}
+                            errMess={this.props.users.errMess}  />} />
                             <Redirect from='' to="/home" />
                             <Route exact path='*' component={NotFound} />} />
                           

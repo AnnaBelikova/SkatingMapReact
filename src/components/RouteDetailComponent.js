@@ -6,7 +6,6 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Map as LeafletMap, TileLayer, Polyline } from 'react-leaflet';
 import { Loading } from './LoadingComponent';
 
-
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
@@ -24,30 +23,16 @@ class CommentForm extends Component {
 
         this.handleSubmit=this.handleSubmit.bind(this);
     }
-
-    
+  
     handleSubmit(values){
         this.props.addComment(this.props.routeId, values.rating, values.author, values.comment)
       
     }
 
-
     render(){
         return(
             <div>
-                    <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-                        <Row className="form-group">
-                                <Label htmlFor="rating" md={2}>Rating</Label>
-                                <Col md={{size:12}}>
-                                    <Control.select  model=".rating" name="rating" className="form-control" >
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </Control.select>
-                                </Col>
-                            </Row>
+                    <LocalForm action="http://cw44189.tmweb.ru/display_comment.php" method="post" onSubmit={(values) => this.handleSubmit(values)}>
                         <Row className="form-group">
                                 <Label htmlFor="author" md={4}>Your Name</Label>
                                 <Col md={12}>
@@ -76,7 +61,7 @@ class CommentForm extends Component {
                                     rows='5' className="form-control"/>
                                 </Col>
                             </Row>
-                        <Button type="submit" value="submit" color="primary">Submit</Button>
+                        <Button type="submit" value="submit" color="primary">Отправить</Button>
                     </LocalForm >
             </div>
         );
@@ -137,15 +122,13 @@ function RenderMap({route}) {
         }
     }
 
-    function RenderComments({comments,addComment,routeId}) {
+    function RenderComments({comments,routeId}) {
         let com;
         if(comments != null){
             com=comments.map((comment)=>{
 
             return(
                     <div key={comment.id}>
-                   
-                        
                         <li className="comment_list__item"><p>{comment.comment}</p>
                             <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year:'numeric', month:'short',  day:'2-digit'}).format(new Date(Date.parse (comment.date)))}</p>
                         </li>
@@ -168,7 +151,7 @@ function RenderMap({route}) {
                         { com }
                    
                 </ul>
-                <CommentForm routeId={routeId} addComment={addComment}/>
+                <CommentForm routeId={routeId}/>
                
             </div>
             
@@ -228,7 +211,7 @@ function RenderMap({route}) {
 
                             <RenderComments comments={props.comments} 
                           
-                            routeId={props.route.id} addComment={props.addComment}/>
+                            routeId={props.route.id}/>
 
                         </div>
 
