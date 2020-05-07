@@ -23,13 +23,14 @@ export const fetchComments = () => (dispatch) => {
           error.response = response;
           throw error;
         }
-      },
-      error => {
-            var errmess = new Error(error.message);
-            throw errmess;
       })
+//      error => {
+//            var errmess = new Error(error.message);
+//            throw errmess;
+//      })
     .then(response => response.json())
-    .then(comments => dispatch(addComments(comments)));
+    .then(comments => dispatch(addComments(comments)))
+    .catch(error => console.error('Error: ', error))
 }
 
 export const commentsLoading = () => ({
@@ -59,13 +60,15 @@ export const fetchRoutes = () => (dispatch) => {
           error.response = response;
           throw error;
         }
-      },
-      error => {
-            var errmess = new Error(error.message);
-            throw errmess;
       })
+//      error => {
+//            let errmess = new Error(error.message);
+//            throw errmess;
+//      })
     .then(response => response.json())
-    .then(routes => dispatch(addRoutes(routes)));
+    .then(routes => dispatch(addRoutes(routes)))
+    .catch(error => console.error('Error: ', error))
+    
 }
 
 export const routesLoading = () => ({
@@ -95,13 +98,14 @@ export const fetchNews = () => (dispatch) => {
           error.response = response;
           throw error;
         }
-      },
-      error => {
-            var errmess = new Error(error.message);
-            throw errmess;
       })
+//      error => {
+//            var errmess = new Error(error.message);
+//            throw errmess;
+//      })
     .then(response => response.json())
-    .then(news => dispatch(addNews(news)));
+    .then(news => dispatch(addNews(news)))
+    .catch(error => console.error('Error: ', error));
 }
 
 export const newsLoading = () => ({
@@ -133,13 +137,13 @@ export const fetchUsers = () => (dispatch) => {
           error.response = response;
           throw error;
         }
-      },
-      error => {
-            var errmess = new Error(error.message);
-            throw errmess;
       })
+//      error => {
+//            throw error;
+//      })
     .then(response => response.json())
-    .then(users => dispatch(addUsers(users)));
+    .then(users => dispatch(addUsers(users)))
+    .catch(error => console.error('Error: ', error));
 }
 
 export const usersLoading = () => ({

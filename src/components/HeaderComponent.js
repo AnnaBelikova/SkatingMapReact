@@ -118,16 +118,17 @@ class Header extends Component {
             </Navbar> 
             
             <Jumbotron>
-                <img src="../assets/images/sum4_250.jpg" className="img-fluid" alt=""/>
+               <img src="../assets/images/3.jpg" width='1920px' height='486px' className="img-fluid" alt="BG"/>
                 <div className = "container" >
                     <div className = "row row-header" >
                         <div className = "jumbotron__info col-12 col-md-10 col-lg-8" >
-                            <h1> Интерактивная карта для роллеров Санкт-Петербурга </h1> 
-                            <p> Проект для тех, кто любит передвигаться по городу на 8 колесах. Интерактивная карта позволит избежать столкновений с перекопаными улицами, попробовать интересные маршруты и даже поделиться своими.</p> 
+                            <h1> Питер на колесах</h1> 
+                            <p> Карта для тех, кто любит передвигаться по городу на 8 колесах.</p> 
                         </div> 
                     </div> 
                 </div> 
-            </Jumbotron> 
+            </Jumbotron>
+            
                 
             <Modal isOpen = {this.state.isModalLoginOpen} toggle = {this.toggleModalLogin}>
                 <ModalHeader toggle = {this.toggleModalLogin}> Войти </ModalHeader> 
