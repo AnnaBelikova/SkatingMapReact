@@ -96,6 +96,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
             <Header auth={this.props.auth} loginUser={this.props.loginUser} logoutUser={this.props.logoutUser} />
             <div className='container'>
                 <div className="row">
+                    <div className="col-3 mb-5">
+                        <div className="newslist">
+                            <TabBox routes={this.props.routes.routes} articles={this.props.news.news} ></TabBox>
+                        </div>
+                    </div>
                     <Switch>
                           <Route path='/home' component={() => <Home/>} />
                           <Route exact path='/news' component={() => <News news={this.props.news.news} isLoading={this.props.news.isLoading}
@@ -112,11 +117,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
                             <Route exact path='*' component={NotFound} />} />
                           
                     </Switch>
-                    <div className="col-3 mb-5">
-                        <div className="newslist">
-                            <TabBox routes={this.props.routes.routes} articles={this.props.news.news} ></TabBox>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <Footer />

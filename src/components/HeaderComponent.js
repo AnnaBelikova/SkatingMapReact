@@ -61,58 +61,68 @@ class Header extends Component {
     render() {
         return ( 
             <div>
-            <Navbar dark expand = "md" >
+            <Navbar expand = "md" className="lightnav">
                 <div className = "container" >
                     <NavbarToggler onClick = {this.toggleNav}/> 
-                    
                     <NavbarBrand className = "mr-auto" href = "/" > 
-                        
-                        <div className="logo">
-                            <img className="logoImg" src="../assets/images/logo.png" width="20" alt="logo"/>
-                            <span>Skater's MAP</span>
-                        </div>
+                            <div class="logo_complex">
+                                <div class='logo'>ПнК</div>
+                                <svg class="logo_wheel" width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
+                                 <g>
+                                  <ellipse fill="none" stroke="#2cb1bc" stroke-width="30" cx="110.000003" cy="110.000002" id="svg_1" rx="90" ry="90"/>
+                                  <ellipse fill="none" stroke="#bbbbbb" stroke-width="10" cx="110.000003" cy="110.000002" id="svg_3" rx="60" ry="60"/>
+                                  <ellipse fill="none" stroke="#bbbbbb" stroke-width="10" cx="109.999998" cy="110.000003" id="svg_5" rx="20" ry="20"/>
+                                  <ellipse fill="#BBBBBB" stroke="#000" stroke-width="0" stroke-opacity="null" cx="110.000002" cy="69.325903" id="svg_8" rx="11.5" ry="7.5" transform="rotate(90, 110, 69.3259)"/>
+                                  <ellipse fill="#BBBBBB" stroke="#000" stroke-width="0" stroke-opacity="null" cx="109.999998" cy="150.692763" id="svg_9" rx="11.5" ry="7.5" transform="rotate(90, 110, 150.693)"/>
+                                  <ellipse fill="#BBBBBB" stroke="#000" stroke-width="0" stroke-opacity="null" cx="150.302076" cy="109.999997" id="svg_14" rx="11.5" ry="7.5"/>
+                                  <ellipse fill="#BBBBBB" stroke="#000" stroke-width="0" stroke-opacity="null" cx="69.935217" cy="110" id="svg_15" rx="11.5" ry="7.5"/>
+                                  <ellipse transform="rotate(-45, 142.302, 83)" fill="#BBBBBB" stroke="#000" stroke-width="0" stroke-opacity="null" cx="142.302076" cy="82.999997" id="svg_4" rx="11.5" ry="7.5"/>
+                                  <ellipse transform="rotate(-45, 80.3021, 137)" fill="#BBBBBB" stroke="#000" stroke-width="0" stroke-opacity="null" cx="80.302076" cy="136.999997" id="svg_6" rx="11.5" ry="7.5"/>
+                                  <ellipse transform="rotate(45, 140.302, 136)" fill="#BBBBBB" stroke="#000" stroke-width="0" stroke-opacity="null" cx="140.302076" cy="135.999997" id="svg_16" rx="11.5" ry="7.5"/>
+                                  <ellipse transform="rotate(45, 82.3021, 81)" fill="#BBBBBB" stroke="#000" stroke-width="0" stroke-opacity="null" cx="82.302076" cy="80.999997" id="svg_17" rx="11.5" ry="7.5"/>
+                                 </g>
+                                </svg>
+                            </div>
                     < /NavbarBrand> 
             
                     <Collapse isOpen = {this.state.isNavOpen}navbar >
-                        <Nav navbar >
+                        <Nav className="menu__items" navbar >
                             <NavItem >
-                                <NavLink className = "nav-link" to = '/aboutus' > < span className = "fa fa-info fa-lg" ></span> О&nbsp;проекте</NavLink >
+                                <NavLink className = "nav-link" to = '/aboutus' > О&nbsp;проекте</NavLink >
                             </NavItem> 
                             <NavItem >
-                                <NavLink className = "nav-link" to = '/news' > < span className = "fa fa-newspaper-o fa-lg" > < /span> Новости</NavLink >
+                                <NavLink className = "nav-link" to = '/news' > Новости</NavLink >
                             </NavItem> 
                             <NavItem >
-                                <NavLink className = "nav-link" to = '/routes' > < span className = "fa fa-road fa-lg" > < /span> Маршруты</NavLink >
+                                <NavLink className = "nav-link" to = '/routes' > Маршруты</NavLink >
                             </NavItem> 
                             <NavItem >
-                                <NavLink className = "nav-link" to = '/contactus' > < span className = "fa fa-address-card fa-lg" > < /span> Контакты</NavLink >
+                                <NavLink className = "nav-link" to = '/contactus' > Контакты</NavLink >
                             </NavItem> 
-                            <Nav className = "ml-auto"navbar >
-                                <NavItem>
+                        </Nav>
+                                    <div class="login_button">
                                         { !this.props.auth.isAuthenticated ?
-                                        <Button variant="outlined" color="primary"  onClick = {this.toggleModalLogin } > 
-                                            <span className="fa fa-sign-in fa-lg"></span> Login
+                                        <button onClick = {this.toggleModalLogin } > 
+                                            <span className="fa fa-sign-in fa-lg"></span> Войти
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                 : null
                                             }
-                                        </Button>
+                                        </button>
                                         :
                                         <div>
                                         <div className="navbar-text mr-3">{this.props.auth.user.user_login}</div>
-                                        <Button outline onClick={this.handleLogout}>
-                                            <span className="fa fa-sign-out fa-lg"></span> Logout
+                                        <button onClick={this.handleLogout}>
+                                            <span className="fa fa-sign-out fa-lg"></span> Выйти
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                 : null
                                             }
-                                        </Button>
+                                        </button>
                                         </div>
                                     }
 
-                                </NavItem>
-                            </Nav> 
-                        </Nav> 
+                                </div> 
                     </Collapse> 
                 </div> 
             </Navbar> 
@@ -125,9 +135,24 @@ class Header extends Component {
                             <h1> Питер на колесах</h1> 
                             <p> Карта для тех, кто любит передвигаться по городу на 8 колесах.</p> 
                         </div> 
-                    </div> 
-                </div> 
+                    </div>
+                        <Form className="header__form col-10">
+                                <FormGroup className="header__input">
+                                    <Label className="header__label" htmlFor = "startpoint" > Начало маршрута < /Label> 
+                                    <Input className="header__inputline" type = "text" id = "startpoint" name = "startpoint" innerRef = {(input) => this.startpoint = input}/> 
+                                </FormGroup> 
+                                <FormGroup className="header__input">
+                                    <Label className="header__label" htmlFor = "endpoint" > Конец маршрута < /Label> 
+                                    <Input className="header__inputline" type = "endpoint" id = "endpoint" name = "endpoint" innerRef = {(input) => this.endpoint = input}/> 
+                                </FormGroup> 
+                                 <FormGroup>
+                                    <button className="header__button" type = "submit" value = "submit"> Поехали< /button>
+                                </FormGroup>
+                        </Form>
+                </div>
             </Jumbotron>
+            
+            
             
                 
             <Modal isOpen = {this.state.isModalLoginOpen} toggle = {this.toggleModalLogin}>
@@ -172,8 +197,6 @@ class Header extends Component {
                     </Form> 
                 </ModalBody> 
             </Modal> 
-
-
 
             <Modal isOpen = {this.state.isModalRegOpen} toggle = {this.toggleModalReg}>
                 <ModalHeader toggle ={this.toggleModalReg}> Регистрация </ModalHeader> 

@@ -47,7 +47,15 @@ render(){
             );
         });
          return(
+              
              <div className="map_block">
+                <div className="map_tabs">
+                            <div  onClick={() => this.setState({activeBtn: 'all', showGood: true, showBad:true, showMiddle:true})} className={'all map_tab '+ (this.state.activeBtn === 'all' ? 'current' : '')}>Все</div>
+                            <div  onClick={() => this.setState({activeBtn: 'good', showGood: true, showBad:false, showMiddle:false })} className={"good map_tab " +(this.state.activeBtn === 'good' ? 'current' : '')}>Шоколад!</div>
+                            <div  onClick={() => this.setState({activeBtn: 'middle', showGood: false, showBad:false, showMiddle:true})} className={"middle map_tab "+(this.state.activeBtn === 'middle' ? 'current' : '')}>Средне</div>
+                            <div  onClick={() => this.setState({activeBtn: 'bad', showGood: false, showBad:true, showMiddle:false})} className={"bad map_tab " + (this.state.activeBtn === 'bad' ? 'current' : '')}>Проезда нет</div>
+                </div> 
+            <div className="map_card">
                 <LeafletMap center={[59.938946, 30.314982]} zoom={10} maxZoom={20} attributionControl={true} zoomControl={true} doubleClickZoom={true} scrollWheelZoom={true} dragging={true} animate={true} easeLinearity={0.35}>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"/>
@@ -55,12 +63,7 @@ render(){
                 {streetsList}
              
         </LeafletMap>
-                        <div className="map_tabs">
-                            <div  onClick={() => this.setState({activeBtn: 'all', showGood: true, showBad:true, showMiddle:true})} className={'all map_tab '+ (this.state.activeBtn === 'all' ? 'current' : '')}>Все</div>
-                            <div  onClick={() => this.setState({activeBtn: 'good', showGood: true, showBad:false, showMiddle:false })} className={"good map_tab " +(this.state.activeBtn === 'good' ? 'current' : '')}>Шоколад!</div>
-                            <div  onClick={() => this.setState({activeBtn: 'middle', showGood: false, showBad:false, showMiddle:true})} className={"middle map_tab "+(this.state.activeBtn === 'middle' ? 'current' : '')}>Средне</div>
-                            <div  onClick={() => this.setState({activeBtn: 'bad', showGood: false, showBad:true, showMiddle:false})} className={"bad map_tab " + (this.state.activeBtn === 'bad' ? 'current' : '')}>Проезда нет</div>
-                        </div>            
+</div>
         </div>
     )}
 }

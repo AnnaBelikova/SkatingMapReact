@@ -8,7 +8,7 @@ function RenderNewsListItem({article, onClick}){
             <Link className="newslist_item__title" to={`/news/${article.id}`} >
              
                     <span>{article.title}</span>
-                    <i className="fa fa-hand-o-right" aria-hidden="true"></i>
+                    <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
              
             </Link>
     );
@@ -19,7 +19,7 @@ function RenderRouteListItem({route, onClick}){
             <Link className="newslist_item__title" to={`/routes/${route.id}`} >
              
                     <span>{route.title}</span>
-                    <i className="fa fa-hand-o-right" aria-hidden="true"></i>
+                    <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
              
             </Link>
     );
@@ -51,8 +51,8 @@ const [activeTab, setActiveTab] = useState('1');
         return (
 <div>
 
-<Nav tabs>
-        <NavItem>
+<Nav tabs className="tabbox__tabs">
+        <NavItem className="tabbox_tab">
           <NavLink
             className={classnames({ active: activeTab === '1' })}
             onClick={() => { toggle('1'); }}
@@ -60,7 +60,7 @@ const [activeTab, setActiveTab] = useState('1');
             Новости
           </NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem className="tabbox_tab">
           <NavLink
             className={classnames({ active: activeTab === '2' })}
             onClick={() => { toggle('2'); }}
@@ -69,7 +69,7 @@ const [activeTab, setActiveTab] = useState('1');
           </NavLink>
         </NavItem>
       </Nav>
-      <TabContent activeTab={activeTab}>
+      <TabContent className="tabbox__content" activeTab={activeTab}>
         <TabPane tabId="1">
           <Row>
             <div className="news_list">
