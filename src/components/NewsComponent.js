@@ -61,7 +61,10 @@ function RenderNewsItem({article, onClick}){
                         <BreadcrumbItem active>Новости</BreadcrumbItem>
                     </Breadcrumb>
                     <div>
+                        { this.props.auth.isAuthenticated ?
                         <button className="news__button" onClick = {this.toggleModal}>Добавить новость</button>
+                        :
+                        <div></div>}
                     </div>           
                 </div>
                 <hr/>  

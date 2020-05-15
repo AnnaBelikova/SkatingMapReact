@@ -75,8 +75,10 @@ body {
     background: #627D98;
 }
 
-
-.login_button > button {
+.user-login{
+    color: #9FB3C8;
+}
+.login_button > button, .logout_button {
     width: 100px;
     height: 35px;
     padding: 5px;
@@ -88,7 +90,7 @@ body {
     transition: color .5s ease-in-out, border .5s ease-in-out;
 }
 
-.login_button > button:hover {
+.login_button > button:hover, .logout_button:hover {
     border: 1px solid #627D98;
     color: #627D98;
     transition: color .5s ease-in-out, border .5s ease-in-out;

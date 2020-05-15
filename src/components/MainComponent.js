@@ -102,7 +102,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
                     </div>
                     <Switch>
                           <Route path='/home' component={() => <Home/>} />
-                          <Route exact path='/news' component={() => <News news={this.props.news.news} isLoading={this.props.news.isLoading}
+                          <Route exact path='/news' component={() => <News auth={this.props.auth} news={this.props.news.news} isLoading={this.props.news.isLoading}
                             errMess={this.props.news.errMess} />} />
                             <Route exact path='/contactus' component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm}/>} />
                             <Route exact path='/aboutus' component={About} />} />

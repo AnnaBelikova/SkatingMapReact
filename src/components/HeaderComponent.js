@@ -109,8 +109,8 @@ class Header extends Component {
                                         </button>
                                         :
                                         <div>
-                                        <div className="navbar-text mr-3">{this.props.auth.user.user_login}</div>
-                                        <button onClick={this.handleLogout}>
+                                        <div className="navbar-text user-login mr-3">{this.props.auth.user.user_login}</div>
+                                        <button className="logout_button" onClick={this.handleLogout}>
                                             <span className="fa fa-sign-out fa-lg"></span> Выйти
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
