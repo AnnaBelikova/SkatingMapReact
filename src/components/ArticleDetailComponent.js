@@ -1,22 +1,21 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody,
-CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 
  function RenderArticle({article}) {
         if (article != null){
             return(
+                <div className="news-detail clearfix">
+                    <div className="news-detail__image"><img width="40%" height="auto" src={article.image} alt={article.title} /></div>
+                    <div className="news-detail__info col-md-12">
+                        <div className="news-detail__title">{article.title}</div>
+                        <div className="news-detail__author">{article.author}</div>
+                        <div className="news-detail__text"> {article.text} </div>
+                    </div>
+                    <a className="return-btn" href="/news"><i className="fa fa-angle-double-left"></i> Вернуться к списку новостей</a>
+                </div>
                
-                <Card>
-                    <CardImg width='100%' object="true" src={article.image} alt={article.title}/>
-                    <CardBody>
-                        <CardTitle>{article.title}</CardTitle>
-                        <CardText><em>{article.author}</em></CardText>
-                        <CardText>{article.text}</CardText>
-                    </CardBody>
-                
-                </Card>
               
             );
         } else{
@@ -50,20 +49,17 @@ import { Loading } from './LoadingComponent';
         else if (props.article != null){
             return (
                 <div className="col-12 col-md-9 main_block">
-                    <div className="row">
-                    <Breadcrumb> 
-                        <BreadcrumbItem>
-                        <Link to="/news">Новости</Link>
-                        </BreadcrumbItem>
-                        <BreadcrumbItem active>
-                        {props.article.title}
-                        </BreadcrumbItem>
-                    </Breadcrumb>
-                    <div className="col-12">
-                        <h3>{props.article.title}</h3>
-                        <hr />
+                    <div className="row breadcrumb__row">
+                        <Breadcrumb className="custom-breadcrumb"> 
+                            <BreadcrumbItem>
+                            <Link to="/news">Новости</Link>
+                            </BreadcrumbItem>
+                            <BreadcrumbItem active>
+                            {props.article.title}
+                            </BreadcrumbItem>
+                        </Breadcrumb>
                     </div>
-                </div>
+                    <hr/>
                     <div className = "row">
                         <div className = "col-12 col-md-12 m-1">
                             <RenderArticle article={props.article}/>

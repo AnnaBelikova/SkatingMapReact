@@ -2,17 +2,6 @@ import React, { Component } from 'react';
 import { Map as LeafletMap, TileLayer, Polyline, Popup } from 'react-leaflet';
 import { STREETS } from '../shared/streets.js';
 
-/*function RenderPolylineItem({street}, props){
-    const cat = street.category;
-    return(
-     <div>
-                <Polyline className={this.props.showRoad} color={cat==='bad' ? 'red': cat==='good'? 'green' :  'yellow'} positions={street.points} />
-                <Marker position={street.center}>
-                <Popup>{this.props.showRoad} {street.name}: {street.desc}</Popup>
-                </Marker>
-    </div>
-    );
-}*/
 
 class MapStreets extends Component {
     constructor(props) {

@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 function Footer(props) {
     return(
-    <div className="footer">
+    <div className="footer ">
         <div className="container">
             <div className="row"> 
-                <div className="col-2 col-sm-2 footer-first">
+                <div className="col-6 col-md-3  col-lg-2 footer-first">
                     <a class="logo_complex lofo_footer" href="/">
                                 <div class='logo'>ПнК</div>
-                                <svg class="logo_wheel" width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
+                                <svg class="logo_wheel white" width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
                                  <g>
                                   <ellipse fill="none" stroke="#F0F4F8" stroke-width="30" cx="110.000003" cy="110.000002" id="svg_1" rx="90" ry="90"/>
                                   <ellipse fill="none" stroke="#bbbbbb" stroke-width="10" cx="110.000003" cy="110.000002" id="svg_3" rx="60" ry="60"/>
@@ -27,7 +27,7 @@ function Footer(props) {
                             </a>
                             <div className="footer__copyright">© ПИТЕР НА КОЛЕСАХ</div>
                 </div>
-                <div className="col-3 col-sm-3">
+                <div className="col-12 col-md-4 col-lg-3 footer-second">
                     
                     <div className="footer__menu list-unstyled">
                         <div className="footer__title">МЕНЮ</div>
@@ -39,15 +39,15 @@ function Footer(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-3 col-sm-3">
+                <div className="col-12 col-md-5 col-lg-3 footer-third">
                     <div className="footer__title">КОНТАКТЫ</div>
                     <div className="footer__contacts">
-		              <a className="footer__phone" href=""><i className="fa fa-phone fa-lg"></i> +852 1234 5678</a>
+		              <a className="footer__phone" href="/"><i className="fa fa-phone fa-lg"></i> +852 1234 5678</a>
 		              <a className="footer__email" href="mailto:bel4onok_spb@mail.ru"><i className="fa fa-envelope fa-lg"></i>
                           bel4onok_spb@mail.ru</a>
                     </div>
                 </div>
-                <div className="col-12 col-sm-4 center">
+                <div className="col-12 col-lg-4 center footer-fourth">
                     <div className="footer__title center">МЫ В СОЦИАЛЬНЫХ СЕТЯХ</div>
                     <div className="btn__socials center">
                         <a className=" btn__social " href="/"><i className="fa fa-vk"></i>&nbsp;</a>

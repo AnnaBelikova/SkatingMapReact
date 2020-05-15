@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label} from 'reactstrap';
 import MapStreets from './MapStreetsComponent';
 import { STREETS } from '../shared/streets.js';
 

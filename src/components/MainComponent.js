@@ -11,10 +11,9 @@ import TabBox from './TabBoxComponent';
 import Routes from './RoutesComponent';
 import Admin from './AdminComponent';
 import NotFound from './NotFoundComponent';
-import axios from "axios";
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addComment,fetchRoutes,fetchNews,fetchComments,loginUser,logoutUser,fetchUsers } from '../redux/ActionCreators';
+import { fetchRoutes,fetchNews,fetchComments,loginUser,logoutUser,fetchUsers } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 
 
@@ -96,8 +95,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
             <Header auth={this.props.auth} loginUser={this.props.loginUser} logoutUser={this.props.logoutUser} />
             <div className='container'>
                 <div className="row">
-                    <div className="col-3 mb-5">
-                        <div className="newslist">
+                    <div className="col-lg-3">
+                        <div className="newslist mb-5">
                             <TabBox routes={this.props.routes.routes} articles={this.props.news.news} ></TabBox>
                         </div>
                     </div>

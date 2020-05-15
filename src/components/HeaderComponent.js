@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
-const required = (val) => val && val.length;
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -62,14 +61,13 @@ class Header extends Component {
         return ( 
             <div>
             <Navbar expand = "md" className="lightnav">
-                <div className = "container" >
-                    <NavbarToggler onClick = {this.toggleNav}/> 
+                <div className = "container nav__container" >
                     <NavbarBrand className = "mr-auto" href = "/" > 
                             <div class="logo_complex">
                                 <div class='logo'>ПнК</div>
-                                <svg class="logo_wheel" width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
+                                <svg class="logo_wheel" id="wheel" width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
                                  <g>
-                                  <ellipse fill="none" stroke="#2cb1bc" stroke-width="30" cx="110.000003" cy="110.000002" id="svg_1" rx="90" ry="90"/>
+                                  <ellipse className="main-wheel" fill="none" stroke="#2cb1bc" stroke-width="30" cx="110.000003" cy="110.000002" id="svg_1" rx="90" ry="90"/>
                                   <ellipse fill="none" stroke="#bbbbbb" stroke-width="10" cx="110.000003" cy="110.000002" id="svg_3" rx="60" ry="60"/>
                                   <ellipse fill="none" stroke="#bbbbbb" stroke-width="10" cx="109.999998" cy="110.000003" id="svg_5" rx="20" ry="20"/>
                                   <ellipse fill="#BBBBBB" stroke="#000" stroke-width="0" stroke-opacity="null" cx="110.000002" cy="69.325903" id="svg_8" rx="11.5" ry="7.5" transform="rotate(90, 110, 69.3259)"/>
@@ -84,9 +82,10 @@ class Header extends Component {
                                 </svg>
                             </div>
                     < /NavbarBrand> 
+                    <NavbarToggler className="pull-right custom-toggler" color="#2cb1bc" onClick = {this.toggleNav}/> 
             
-                    <Collapse isOpen = {this.state.isNavOpen}navbar >
-                        <Nav className="menu__items" navbar >
+                    <Collapse isOpen = {this.state.isNavOpen} navbar >
+                        <Nav className="nav__items" navbar >
                             <NavItem >
                                 <NavLink className = "nav-link" to = '/aboutus' > О&nbsp;проекте</NavLink >
                             </NavItem> 
@@ -98,9 +97,8 @@ class Header extends Component {
                             </NavItem> 
                             <NavItem >
                                 <NavLink className = "nav-link" to = '/contactus' > Контакты</NavLink >
-                            </NavItem> 
-                        </Nav>
-                                    <div class="login_button">
+                            </NavItem>
+                                    <NavItem className="login_button">
                                         { !this.props.auth.isAuthenticated ?
                                         <button onClick = {this.toggleModalLogin } > 
                                             <span className="fa fa-sign-in fa-lg"></span> Войти
@@ -122,7 +120,9 @@ class Header extends Component {
                                         </div>
                                     }
 
-                                </div> 
+                                </NavItem> 
+                        </Nav>
+                                    
                     </Collapse> 
                 </div> 
             </Navbar> 
@@ -133,10 +133,10 @@ class Header extends Component {
                     <div className = "row row-header" >
                         <div className = "jumbotron__info col-12 col-md-10 col-lg-8" >
                             <h1> Питер на колесах</h1> 
-                            <p> Карта для тех, кто любит передвигаться по городу на 8 колесах.</p> 
+                            <p> Карта для тех, кто любит передвигаться по&nbsp;городу на&nbsp;8&nbsp;колесах.</p> 
                         </div> 
                     </div>
-                        <Form className="header__form col-10">
+                        <Form className="header__form col-12 col-md-10">
                                 <FormGroup className="header__input">
                                     <Label className="header__label" htmlFor = "startpoint" > Начало маршрута < /Label> 
                                     <Input className="header__inputline" type = "text" id = "startpoint" name = "startpoint" innerRef = {(input) => this.startpoint = input}/> 
@@ -145,7 +145,7 @@ class Header extends Component {
                                     <Label className="header__label" htmlFor = "endpoint" > Конец маршрута < /Label> 
                                     <Input className="header__inputline" type = "endpoint" id = "endpoint" name = "endpoint" innerRef = {(input) => this.endpoint = input}/> 
                                 </FormGroup> 
-                                 <FormGroup>
+                                 <FormGroup className="form__button">
                                     <button className="header__button" type = "submit" value = "submit"> Поехали< /button>
                                 </FormGroup>
                         </Form>
