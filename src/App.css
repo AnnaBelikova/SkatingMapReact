@@ -11,9 +11,6 @@ body {
 }
 
 
-
-
-
 .row-header {
     margin: 0px auto;
     padding: 0px auto;
@@ -21,7 +18,7 @@ body {
 
 .row-content {
     margin: 0px auto;
-    padding: 50px 0px 50px 0px;
+    padding: 20px 0px 20px 0px;
 }
 
 .navbar.lightnav {
@@ -549,12 +546,6 @@ hr{
     display: none !important;
 }
 
-/*
-.title__add {
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-*/
 
 
 .news__item {
@@ -682,6 +673,235 @@ hr{
     color:#2CB1BC;
     text-decoration: underline;
 }
+
+.contacts__content{
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    
+}
+.contacts__row{
+    display:flex;
+    justify-content: space-between;
+}
+.contacts{
+    display:flex;
+    flex-direction: column;
+}
+.contacts__phone{
+    margin-bottom: 10px;
+}
+.contacts__phone, .contacts__email, .contacts__email>.fa-envelope{
+    color:#9FB3C8;
+    font-weight: 500;
+}
+
+.contacts__phone:hover,.contacts__email:hover, .contacts__email:hover>.fa-envelope{
+    color:#486581;
+    text-decoration: none;
+}
+
+.contacts__phone>.fa-phone, .contacts__email>.fa-envelope{
+    margin-right: 10px;
+}
+
+.contacts__btn{
+    display: inline-block;
+    border-radius: 50%;
+    background: #E0FCFF;
+    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transition: all .5s ease-in-out;
+}
+
+.contacts__btn > i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #486581;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+.contacts__btn:hover {
+    text-decoration: none;
+    transform: translateY(-5px) scale(1.2);
+    z-index: 100;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: all .5s ease-in-out;
+}
+.contacts__form>h3{
+    color:#486581;
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-bottom: 30px;
+    
+}
+
+.form-group>label{
+    color:#9FB3C8;
+    margin-left:15px;
+    
+}
+.form-control.dark{
+    border-radius: 5px;
+    background: #D9E2EC;
+}
+
+.submit-btn{
+    background: #14919B;
+    border-radius: 8px;
+    width:130px;
+    height:35px;
+    color:#fff;
+    text-transform: uppercase;
+    border:none;
+    margin-right: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.submit-btn:hover{
+    background: #044E54;
+    box-shadow: none;
+}
+.reset-btn{
+    border:none;
+    color:#14919B;
+    background: transparent;
+}
+.reset-btn:after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    transition: width .5s ease-in-out;
+}
+
+.reset-btn:hover{
+    color:#044E54;
+}
+.reset-btn:hover::after {
+    transition: width .5s ease-in-out;
+    width: 100%;
+    background: #044E54;
+}
+
+.about__content{
+    background: #fff;
+    border-radius: 8px;
+}
+.blockquote{
+    text-align: center;
+    padding:20px;
+}
+.blockquote>p{
+    color:#486581;
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1em;
+    position: relative;
+}
+
+.blockquote>p::before{
+    content:'\201c';
+    font-size: 2em;    
+    position: absolute;
+    top:0;
+    left:0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+}
+.blockquote>p::after{
+    content:'\201d';
+    font-size: 2em;    
+    color: #486581;    
+     position: absolute;
+    bottom:0;
+    right:0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.blockquote-footer{
+    text-align: right;
+}
+
+.about__row{
+    display:flex;
+    align-items: center;
+}
+.about__info{
+    color:#486581;
+}
+.about__card-header.card-header{
+    background: #E0FCFF;
+    color:#486581;
+    font-weight: 500;
+}
+.about__card{
+    margin-bottom:0px;
+    border:none;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+.about__card-body{
+    padding:20px;
+}
+.about__card-body>.row>dt{
+    color:#486581;
+    font-weight: 500;
+    font-size: 0.8em;
+}
+.about__card-body>.row>dd{
+    color:#486581;
+    font-size: 0.8em; 
+}
+.about__card-body>.row>dd:last-of-type, .about__card-body>.row>dt:last-of-type{
+    margin-bottom: 0;
+}
+.about__team{
+    padding:15px;
+}
+
+.about__title{
+    text-transform: uppercase;
+    color:#486581;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 30px;
+}
+.about__items{
+    display: flex;
+    justify-content: space-around;
+}
+.about__item{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about__img{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 dt {
