@@ -674,6 +674,66 @@ hr{
     text-decoration: underline;
 }
 
+.route_item.card{
+    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    border:none !important;
+}
+.route_item__image{
+    max-height:160px;
+}
+.route_item__info{
+    min-height:100px;
+}
+.route_item__author,.route_item__date{
+    color:#9FB3C8;
+    font-size: 0.8em;
+}
+.route_item__title{
+    color:#486581;
+    font-size: 1.3em;
+    line-height: 1em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}
+.route_item__streets{
+    color:#627D98;
+    font-size: 0.8em;
+    font-weight: 500;
+    background: #F0F4F8;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding:20px;
+    min-height:100px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.route_item>.card-body>a{
+    display:block;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+    padding:20px;
+    background: #2CB1BC;
+    height:auto;
+    color:#FFFFFF;
+    display:flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    border-radius: 0 0 4px 4px;
+    align-items: center;
+}
+.route_item>.card-body>a:hover{
+    text-decoration: none;
+    background: #044E54;
+}
+
+
+
+
+
 .contacts__content{
     background: #fff;
     border-radius: 8px;
@@ -795,6 +855,7 @@ hr{
 .about__content{
     background: #fff;
     border-radius: 8px;
+    padding:20px 30px !important;
 }
 .blockquote{
     text-align: center;
@@ -807,6 +868,7 @@ hr{
     margin-bottom: 20px;
     line-height: 1em;
     position: relative;
+    padding: 30px;
 }
 
 .blockquote>p::before{
@@ -833,10 +895,6 @@ hr{
     text-align: right;
 }
 
-.about__row{
-    display:flex;
-    align-items: center;
-}
 .about__info{
     color:#486581;
 }
@@ -866,17 +924,18 @@ hr{
     margin-bottom: 0;
 }
 .about__team{
-    padding:15px;
+    padding:30px 15px;
 }
 
 .about__title{
     text-transform: uppercase;
     color:#486581;
-    font-size: 1.5em;
+    font-size: 1.8em;
     text-align: center;
     font-weight: 500;
     letter-spacing: 0.05em;
     margin-bottom: 30px;
+    letter-spacing: 0.1em;
 }
 .about__items{
     display: flex;
@@ -885,10 +944,42 @@ hr{
 .about__item{
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
 }
 .about__img{
-    
+    background: url(http://placeimg.com/185/185/animals);
+    width:120px;
+    height:120px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .6) inset; 
+}
+.about__item:last-of-type>.about__img{
+    background: url(http://placeimg.com/200/200/animals);
+    background-size: cover;
+    background-position: center;
+}
+.about__surname{
+    color:#486581;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    letter-spacing: 0.05em;
+}
+.about__name{
+    color:#486581;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+.about__biography{
+    text-align: center;
+    color:#9FB3C8;
 }
 
 

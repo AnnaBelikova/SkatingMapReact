@@ -2,15 +2,15 @@ import * as ActionTypes from'./ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
 import axios from "axios";
 
-//export const addComment = (routeId, rating, author, comment) => ({
-//   type:ActionTypes.ADD_COMMENT,
-//    payload:{
-//        routeId: routeId,
-//        rating: rating,
-//        author:author,
-//        comment:comment
-//    }
-//});
+export const addComment = (routeId, rating, author, comment) => ({
+   type:ActionTypes.ADD_COMMENT,
+    payload:{
+        routeId: routeId,
+        rating: rating,
+        author:author,
+        comment:comment
+    }
+});
 
 export const fetchComments = () => (dispatch) => {
     dispatch(commentsLoading());
@@ -121,8 +121,6 @@ export const addNews = (news) => ({
     type: ActionTypes.ADD_NEWS,
     payload: news
 });
-
-
 
 
 

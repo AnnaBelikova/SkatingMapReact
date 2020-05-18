@@ -76,7 +76,7 @@ function RenderNewsItem({article, onClick}){
                         Добавь свою новость
                     < /ModalHeader> 
                     <ModalBody>
-                        <Form  action="display.php" method="post" onSubmit = {this.handleNews} >
+                        <Form action="http://cw44189.tmweb.ru/display.php" method="post" enctype="multipart/form-data" onSubmit = {this.handleNews} >
                             <FormGroup >
                                 <Label htmlFor = "news_title" > Заголовок < /Label> 
                                 <Input type = "text" id = "news_title" name = "news_title" innerRef = {(input) => this.news_title = input}/> 

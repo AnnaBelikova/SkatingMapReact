@@ -10,7 +10,7 @@ function About(props) {
   
 
     return(
-        <div className='col-12 col-md-9 main_block'>
+        <div className='col-12 col-lg-9 main_block'>
             <div className="row breadcrumb__row">
                 <Breadcrumb className="custom-breadcrumb">
                     <BreadcrumbItem><Link to="/home">Главная</Link></BreadcrumbItem>
@@ -20,13 +20,13 @@ function About(props) {
             <hr />
             <div className="col-12 about__content">
                 <blockquote className="blockquote">
-                    <p >Там, где асфальт, ничего интересного, а&nbsp;где интересно,<br/> там нет асфальта.</p>
+                    <p >Там, где асфальт, ничего интересного,&nbsp;а&nbsp;где&nbsp;интересно,<br/> там нет асфальта.</p>
                     <footer className="blockquote-footer">Аркадий и Борис Стругацкие,
                     <cite title="Source Title">citatnica.ru</cite>
                     </footer>
                 </blockquote>
                 <hr/>
-                <div className=" row-content about__row">
+                <div className="row row-content about__row">
                     <div className="col-12 col-md-12 col-lg-6">
                         <p className="about__info">Проект только развивается. Наша цель - помочь роллерам комфортно передвигаться по городу и вовремя узнавать о перекопанных улицах и плохих дорогах, которые могут не только уменьшить удовольствие от поездки, но и навредить здоровью.</p>
 
@@ -47,19 +47,19 @@ function About(props) {
                 </div>
                 <div className=" about__team">
                     <div className="about__title">Наша команда</div>
-                    <div className="about__items">
-                        <div className="about__item col-4">
+                    <div className="row about__items">
+                        <div className="about__item col-12 col-md-5">
                             <div className="about__img"></div>
                             <div className="about__surname">Винеров</div>
                             <div className="about__name">Илья</div>
                             <div className="about__biography">Главный идеолог, разработчик карты&nbsp;и, конечно&nbsp;же, роллер. Большая часть маршрутов на&nbsp;сайте&nbsp;&mdash; его детище.</div>
 
                         </div>
-                        <div className="about__item col-4">
+                        <div className="about__item col-12 col-md-5">
                             <div className="about__img"></div>
-                            <div className="about__surname">Винеров</div>
-                            <div className="about__name">Илья</div>
-                            <div className="about__biography">Главный идеолог, разработчик карты&nbsp;и, конечно&nbsp;же, роллер. Большая часть маршрутов на&nbsp;сайте&nbsp;&mdash; его детище.</div>
+                            <div className="about__surname">Беликова</div>
+                            <div className="about__name">Анна</div>
+                            <div className="about__biography">Веб-разработчик сайта ПнКО,<br/> роллер.</div>
 
                         </div>
                     </div>

@@ -25,8 +25,7 @@ class CommentForm extends Component {
     }
   
     handleSubmit(values){
-        this.props.addComment(this.props.routeId, values.rating, values.author, values.comment)
-      
+        this.props.addComment(this.props.routeId, values.rating, values.author, values.comment)  
     }
 
     render(){
@@ -130,7 +129,7 @@ function RenderMap({route}) {
             return(
                     <div key={comment.id}>
                         <li className="comment_list__item"><p>{comment.comment}</p>
-                            <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year:'numeric', month:'short',  day:'2-digit'}).format(new Date(Date.parse (comment.date)))}</p>
+                            <p>--{comment.author}</p>
                         </li>
                     
                     </div>

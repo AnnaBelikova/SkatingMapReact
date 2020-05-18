@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 
-import {  Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
+import {  Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label,Card, CardImg,CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 
 function RenderRouteItem({route, onClick}){
     return(
-        <div className="news__item row">
+        <Card className="route_item">
         
-                <div className="col-12 col-md-3"><img width="100%" src={route.image} alt={route.title} /></div>
-                <div className="news_item__info col-12 col-md-9">
-                    <div className="news_item__title">{route.title}</div>
-        
-                    <div className="news_item__text"> {route.description} </div>
-                    
-        
-                    <Link to={`/routes/${route.id}`} >
-                        <Button color="primary" className='news_item__detailbtn'>Подробнее</Button>
-                    </Link>
-                </div>
-            
-        </div>
+                <CardImg className="route_item__image" width="100%" src={route.image} alt={route.title} />
+                <CardBody>
+                        <div className="route_item__info">
+                            <div className="route_item__author"> {route.author} </div>
+                            <div className="route_item__title">{route.title}</div>
+                            <div className="route_item__date">{route.date}</div>
+                        </div>
+                        <hr/>
+                        <div className="route_item__streets"> {route.streets} </div>
+
+                        <Link to={`/routes/${route.id}`} >
+                            <span>Подробнее</span>
+                            <i className="fa fa-angle-double-right"></i>
+                        </Link>
+                </CardBody>
+        </Card>
     );
 }
 
@@ -51,7 +54,7 @@ class Routes extends Component {
     render(){
         const routes = this.props.routes.map((route) => {
             return (
-                <div className=' col-12'  key={route.id}>
+                <div className=' col-lg-4'  key={route.id}>
                     <RenderRouteItem route={route} onClick={this.props.onClick} />
                 </div>
             );
@@ -80,19 +83,14 @@ if (this.props.routes.isLoading) {
 
         return (
                <div className='col-12 col-md-9 main_block'>
-                <div className='row'>
-                    <Breadcrumb>
+                <div className='row breadcrumb__row'>
+                    <Breadcrumb className="custom-breadcrumb">
                         <BreadcrumbItem><Link to='/home'>Главная</Link></BreadcrumbItem>
                         <BreadcrumbItem active>Маршруты</BreadcrumbItem>
-                    </Breadcrumb>
-                    <div className='col-12'>
-                        <div className="row title__add">
-                            <h3>Маршруты</h3>
-                            <Button color="primary" onClick = {this.toggleModal}>Добавить маршрут</Button>
-                        </div>
-                    </div>                
+                    </Breadcrumb>            
                 </div>
-                <div className='row news__items'>
+                <hr/> 
+                <div className='row routes__items'>
                     {routes}
                 </div>
                 <Modal isOpen = {this.state.isModalOpen} toggle = {this.toggleModal} >
