@@ -68,7 +68,7 @@ class Main extends Component {
 
  const RouteWithId = ({match}) => {
       return(
-            <RouteDetail route={this.props.routes.routes.filter((route) => route.id == parseInt(match.params.routeId,10))[0]}
+            <RouteDetail auth={this.props.auth} route={this.props.routes.routes.filter((route) => route.id == parseInt(match.params.routeId,10))[0]}
             isLoading={this.props.routes.isLoading}
             errMess={this.props.routes.errMess}
             comments={this.props.comments.comments.filter((comment) => comment.routeId == parseInt(match.params.routeId,10))} 

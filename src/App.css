@@ -709,13 +709,14 @@ hr{
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-top: 16px;
 }
 .route_item>.card-body>a{
     display:block;
     margin-left: -20px;
     margin-right: -20px;
     margin-bottom: -20px;
-    padding:20px;
+    padding:10px 20px;
     background: #2CB1BC;
     height:auto;
     color:#FFFFFF;
@@ -730,9 +731,79 @@ hr{
     background: #044E54;
 }
 
+.route_item__conditions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    color:#9FB3C8;
+}
 
+.route_item__length{
+    display: flex;
+    align-items: center;
+}
+.fa.fa-road{
+    font-size: 25px;
+    color:#486581;
+}
 
+.route_detail{
+    background: #fff;
+    border-radius: 8px;
+    padding:20px 10px;   
+}
+.route_detail__title{
+    color:#486581;
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+.route_detail__row{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.route_detail__author, .route_detail__category, .route_detail__date{
+    color:#9FB3C8;
+}
 
+.route_detail__conditions{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color:#627D98;
+}
+.route_item__hills,route_item__bridges{
+    display: flex;
+    align-items: center;
+}
+.bridge,.hill, .fa-road{
+    margin-right: 5px;
+}
+.route_detail__length{
+    display: flex;
+    align-items: center;
+}
+.route_detail__length>.fa-road{
+    font-size: 40px;
+}
+.route_detail__streets{
+    color:#9FB3C8;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.route_detail__description{
+    color:#627D98;
+    font-style: italic;
+    text-align: center;
+}
 
 .contacts__content{
     background: #fff;
@@ -995,6 +1066,7 @@ hr{
 
 
 
+/*
 dt {
     margin-bottom: 15px;
 }
@@ -1021,21 +1093,26 @@ dt {
 .nav-item {
     cursor: pointer;
 }
+*/
 
-.comments_list {
-    padding: 10px;
+.comments{
+    margin-left: -15px;
+    margin-right: -15px;
+    background: #fff;
     border-radius: 8px;
-    border: 1px solid lightblue;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
+    padding:20px 30px; 
 }
 
-.comment_list__item {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid lightblue;
-    background-color: floralwhite;
-    margin-bottom: 10px;
+.comments_list >h3{
+    font-size: 1.3em;
+    font-weight: 500;
+    color:#486581;
+    margin-bottom: 20px;
+}
+
+
+.comment_list__item{
+ border:none;   
 }
 
 
