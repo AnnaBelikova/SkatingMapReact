@@ -312,7 +312,7 @@ body {
     text-transform: uppercase;
     border: none;
     border-radius: 5px;
-    width: 130px;
+    min-width: 130px;
     font-weight: 700;
 }
 
@@ -1112,10 +1112,55 @@ dt {
 
 
 .comment_list__item{
- border:none;   
+ border:none;  
+display: flex;
+    align-items: center;
+}
+.user__avatar{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #D9E2EC;
+    margin:20px;
+    position: relative;
+}
+.user__avatar>.fa-user{
+    color:#627D98;
+    font-size: 1.5em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.comment__author{
+    color:#486581;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.comment__text{
+    margin-bottom: 0px;
+    color:#627D98;
 }
 
-
+.route_detail__registration{
+    color:#627D98;
+    text-align: center;
+}
+.notfound__block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.notfound{
+    color:#14919B;
+    font-size: 3em;
+    display:inline-block;
+    
+}
+.notfound_wheel:hover{
+    animation: ride .3s infinite ease-in-out;
+}
 .leaflet-container {
     height: 600px;
     border-radius: 8px;

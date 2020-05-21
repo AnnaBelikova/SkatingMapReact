@@ -2,6 +2,7 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import NotFound from './NotFoundComponent';
 
  function RenderArticle({article}) {
         if (article != null){
@@ -20,7 +21,7 @@ import { Loading } from './LoadingComponent';
             );
         } else{
             return(
-                <div></div>
+                <NotFound/>
             );
         }
     }
@@ -70,7 +71,7 @@ import { Loading } from './LoadingComponent';
             )
         }else{
             return (
-                <div className="col-12 col-md-9 main_block"> Новость не прошла</div>
+                 <NotFound/>
             )
         }
     }

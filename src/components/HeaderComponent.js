@@ -177,23 +177,14 @@ class Header extends Component {
                             }
                             /> 
                         </FormGroup> 
-                        <FormGroup check >
-                            <Label check >
-                                <Input type = "checkbox"
-                                name = "remember"
-                                innerRef = {
-                                    (input) => this.remember = input
-                                }/>
-                                Remember me 
-                            </Label> 
-                        </FormGroup> 
-                        <Button className='mr-5' type = "submit"
+
+                        <button className='mr-5 header__button' type = "submit"
                             value = "submit"
-                            color = "primary" > Войти 
-                        </Button> 
-                        <Button  onClick = {() => this.setState({isModalRegOpen: true, isModalLoginOpen: false})}
-                            color = "secondary" > Нужна регистрация 
-                        </Button> 
+                             > Войти 
+                        </button> 
+                        <button  onClick = {() => this.setState({isModalRegOpen: true, isModalLoginOpen: false})}
+                            className='p-2 news__button' > Нужна регистрация 
+                        </button> 
                     </Form> 
                 </ModalBody> 
             </Modal> 
@@ -239,10 +230,10 @@ class Header extends Component {
                             /> 
                         </FormGroup>
                         
-                        <Button type = "submit"
+                        <button className='mr-5 header__button' type = "submit"
                             value = "submit"
-                            color = "primary" > Зарегистрироваться 
-                        </Button> 
+                             > Зарегистрироваться 
+                        </button> 
                         
                     </Form> 
                 </ModalBody> 

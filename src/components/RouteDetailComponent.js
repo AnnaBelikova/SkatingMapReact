@@ -5,6 +5,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 
 import { Map as LeafletMap, TileLayer, Polyline } from 'react-leaflet';
 import { Loading } from './LoadingComponent';
+import NotFound from './NotFoundComponent';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -25,43 +26,30 @@ class CommentForm extends Component {
     }
   
     handleSubmit(values){
-        this.props.addComment(this.props.routeId, values.rating, values.author, values.comment)  
+        this.props.addComment(this.props.routeId, values.rating, this.props.auth.author, values.comment)  
     }
 
     render(){
         return(
             <div>
                     <LocalForm action="http://cw44189.tmweb.ru/display_comment.php" method="post" onSubmit={(values) => this.handleSubmit(values)}>
-                        <Row className="form-group">
-                                <Label htmlFor="author" md={4}>Your Name</Label>
+                        <Row className="form-group" style={{display: "none"}}>
                                 <Col md={12}>
                                     <Control.text model=".author" id="author" name="author" 
-                                    placeholder='Your Name' className='form-control'
-                                    validators={{
-                                        required, minLength: minLength(3), maxLength: maxLength(15)
-                                    }}
-                                    />
-                                    <Errors
-                                        className="text-danger" 
-                                        model=".author"
-                                        show="touched"
-                                        messages={{
-                                            required: "Required",
-                                            minLength:"Must be greater than 2 characters",
-                                            maxLength:"Must be 15 characters or less"
-                                        }}
+                                    className='form-control' value={this.props.auth.user.user_login}
                                     />
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor="comment" md={2}>Comment</Label>
+                                <Label htmlFor="comment" >Оставьте комментарий</Label>
                                 <Col md={12}>
                                     <Control.textarea model='.comment' id="comment" name="comment" 
-                                    rows='5' className="form-control"/>
+                                    rows='2' className="form-control"/>
                                 </Col>
                             </Row>
-                        <Button type="submit" value="submit" color="primary">Отправить</Button>
+                        <button type="submit" value="submit" className="news__button">Отправить</button>
                     </LocalForm >
+                    
             </div>
         );
     }
@@ -151,15 +139,19 @@ function RenderMap({route}) {
         }
     }
 
-    function RenderComments({comments,routeId}) {
+    function RenderComments({comments,routeId,auth}) {
         let com;
         if(comments != null){
             com=comments.map((comment)=>{
 
             return(
                     <div key={comment.id}>
-                        <li className="comment_list__item"><p>{comment.comment}</p>
-                            <p>--{comment.author}</p>
+                        <li className="comment_list__item">
+                            <div className="user__avatar"><i className="fa fa-user"></i></div>
+                            <div className="comment__info">
+                                <p className="comment__author">{comment.author}</p>
+                                <p className="comment__text">{comment.comment}</p>
+                            </div>
                         </li>
                     <hr/>
                     </div>
@@ -181,7 +173,13 @@ function RenderMap({route}) {
                         { com }
                    
                 </ul>
-                <CommentForm routeId={routeId}/>
+                { auth.isAuthenticated ?
+                <CommentForm auth={auth} routeId={routeId}/>
+                : 
+                <div className="route_detail__registration"> Зарегистрируйтесь, чтобы оставить комментарий</div>
+            
+                }
+                
                
             </div>
             
@@ -235,7 +233,7 @@ function RenderMap({route}) {
 
                             <RenderComments comments={props.comments} 
                           
-                            routeId={props.route.id}/>
+                            routeId={props.route.id} auth={props.auth}/>
 
                         </div>
 
@@ -244,7 +242,7 @@ function RenderMap({route}) {
             )
         }else{
             return (
-                <div></div>
+                <NotFound/>
             )
         }
     }
